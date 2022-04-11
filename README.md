@@ -23,7 +23,7 @@ That being said, feel free to dock anything wherever you want.
 
 ##### Left Sidebar
 
-- New Note/New Folder/Rearrange buttons - hidden. Recommend to make the buttons first before enabling this theme.
+- New Note/New Folder/Rearrange buttons - hidden. Recommend to make the buttons first before installing.
 - Ribbon-Dock buttons (Settings, Change Vault, etc.) - hidden. Same solution as above.
 - Style is set to be buttons-only. Icons are made possible with [Icon Folder Plugin](https://github.com/FlorianWoelki/obsidian-icon-folder)
 - To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons).
@@ -43,8 +43,8 @@ That being said, feel free to dock anything wherever you want.
 
 ## Sidebar Buttons 
 
-1. Install "Buttons Plugin".
-1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should looks like below. You may use an SVG link as Icon in the "name" section
+1. Install [Buttons Plugin](https://github.com/shabegom/buttons).
+1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should look like below. You may use an SVG link as Icon in the "name" section
    ~~~
    ```button
    name <svg/> **Insert an SVG link here** </svg> New Note
@@ -53,7 +53,7 @@ That being said, feel free to dock anything wherever you want.
    ```
    ~~~
 1. Create another note, and insert an "inline-button" (Ctrl+P, search for "Buttons: Insert Inline Button").
-1. Select the button you need to be placed on the sidebar. It should come out something like \`button-aafl`.
+1. Select the button you need to be placed on the sidebar. It should come out something like ~\`button-aafl`~.
 1. Drag the note onto the bottom part of the sidebar.
 
 
