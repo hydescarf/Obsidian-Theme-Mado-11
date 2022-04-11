@@ -92,6 +92,92 @@
 	--scrollbar-auto-scrollbar-color-track: hsla(223, 7%, 20%, 1);
 }
 
+.theme-dark {
+	
+	/* dark mode quick hack */
+	--w-white-1:hsla(215, 17%, 19%, 1);
+	--w-white-2:hsla(214, 24%, 15%, 1);
+	--w-white-3:hsla(212, 17%, 10%, 0.2);
+	--w-white-6:hsla(212, 17%, 0%, 0.3);
+	--w-white-4:hsla(215, 22%, 13%, 1);
+	--w-white-5:hsla(207, 10%, 10%, 0.1);
+	
+	--w-blue-1:hsla(209, 95%, 62%, 1);
+	
+	--w-black-1:hsla(0, 0%, 80%, 1);
+	--w-gray-1:hsla(0, 0%, 83%, 1);
+	--w-gray-2:hsla(210, 25%, 5%, 0.3);
+	--w-gray-3:hsla(210, 15%, 50%, 0.4);
+	--w-gray-4:hsla(210, 15%, 70%, 0.5);
+	--w-gray-5:hsla(207, 17.6%, 10%, 0.5);
+	--w-gray-6:hsla(217, 15.7%, 33.7%, 1);
+	
+	--w-yellow:hsla(60, 80%, 30%, 0.5);
+	--w-orange:hsla(25, 75%, 65%, 1);
+	--w-red-1:hsla(365, 90%, 62%, 1);
+	--w-red-2:hsl(365, 95%, 85%, 1);
+	--w-red-3:hsl(365, 85%, 45%, 1);
+	
+	
+	--indentation-guide:var(--w-gray-5);
+	
+	--background-primary:		var(--w-white-1);
+	--background-secondary:		var(--w-white-2);
+	--background-secondary-alt:	var(--w-gray-5);
+	--background-tertiary:		var(--w-white-3);
+	
+	--background-accent:var(--w-blue-1);	
+	--background-fourth:var(--w-white-4);
+	--background-fifth:var(--w-white-5);
+	
+	--color-black:var(--w-black-1);
+	--color-dark-gray:var(--w-gray-1);
+	--color-accent:var(--w-blue-1);
+	--color-gray:var(--w-gray-2);
+	--color-light-gray:var(--w-gray-3);
+	--color-medium-gray:var(--w-gray-4);
+	--color-gray-6:var(--w-gray-6);
+	
+	--color-highlight:var(--w-yellow);
+	--color-bold:var(--w-orange);
+	
+	
+	--text-normal: var(--w-black-1);
+	--text-error:var(--w-red-1);
+	--text-on-accent: var(--w-white-1);
+	--text-faint: var(--w-gray-6);
+
+	--text-em: var(--w-gray-5);
+	--text-muted: hsl(218, 19%, 57%);
+	
+	
+	--button-selected:var(--w-white-6);
+	--button-hover:var(--w-white-6);
+	--button-selected-hover:var(--w-white-3);
+	
+	--window-shadow:0 1px 3px var(--w-white-3);
+	--window-shadow-hover:0 3px 5px var(--w-white-6);
+	--window-shadow-transparent:0 3px 5px transparent;
+	
+	
+	--hover-transition:0.05s ease-in;
+	--readable-line-length: 45rem;
+	--background-modifier-error:var(--w-red-1);
+	--background-modifier-border:var(--w-gray-5);
+	--interactive-accent:var(--w-blue-1);
+	--border:1px solid var(--w-gray-5);
+	
+
+  
+	--scrollbar-bg: transparent;
+	--scrollbar-thin-thumb: hsla(216, 7%, 14%, 1);
+	--scrollbar-thin-track: transparent;
+	--scrollbar-auto-thumb: hsla(216, 7%, 14%, 1);
+	--scrollbar-auto-track: hsla(210, 10%, 20%, 1);
+	--scrollbar-auto-scrollbar-color-thumb: hsla(216, 7%, 14%, 1);
+	--scrollbar-auto-scrollbar-color-track: hsla(223, 7%, 20%, 1);
+}
+
 
 body{
 	background:var(--background-secondary);

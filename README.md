@@ -1,6 +1,7 @@
 # Obsidian Theme - Mado 11
  
 ![](cover.jpg)
+![](cover2.jpg)
 
 Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
 
@@ -36,6 +37,7 @@ That being said, feel free to dock anything wherever you want.
 - Main Pane has animation activated at each update/enter. Search for "slide-up" in the CSS file if you want to disable it.
 - Resize Handle - hidden, hover to show.
 - Status Bar - hidden.
+- Dark Mode - Not fully configured as I'm not too familiar with it, but still usable. Feel free to contribute!
 
 ## Sidebar Buttons 
 
