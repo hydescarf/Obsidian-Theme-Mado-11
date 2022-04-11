@@ -48,7 +48,6 @@ That being said, feel free to dock anything wherever you want.
    action Create a New Note 
    ```
    ~~~
-
 1. Create another note, and insert an "inline-button" (Ctrl+P, search for "Buttons: Insert Inline Button").
 1. Select the button you need to be placed on the sidebar. It should come out something like \`button-aafl`.
 1. Drag the note onto the bottom part of the sidebar.
@@ -61,7 +60,6 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 2. Look for Buttons Folder, and open the file "main.js" inside it 
 3. Search for `const clickHandler = async (app, args, inline, id) => {` (around line 1553)  
 4. Look for these right below and cut them
-
    ```js
    if (args.type === "command") {  
    	command(app, args);  
@@ -71,5 +69,4 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
    	link(args);  
    }
    ```
-
 5. Paste them below `const activeView = app.workspace.getActiveViewOfType(obsidian.MarkdownView);` which is just a few lines above them (or one line below the initial search)  
