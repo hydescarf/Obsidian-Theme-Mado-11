@@ -23,6 +23,8 @@ That being said, feel free to dock anything wherever you want.
 
 ##### Left Sidebar
 
+- New Note/New Folder/Rearrange buttons - hidden. Recommend to make the buttons first before enabling this theme.
+- Ribbon-Dock buttons (Settings, Change Vault, etc.) - hidden. Same solution as above.
 - Style is set to be buttons-only. Icons are made possible with [Icon Folder Plugin](https://github.com/FlorianWoelki/obsidian-icon-folder)
 - To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons).
 
