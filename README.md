@@ -53,7 +53,7 @@ That being said, feel free to dock anything wherever you want.
    ```
    ~~~
 1. Create another note, and insert an "inline-button" (Ctrl+P, search for "Buttons: Insert Inline Button").
-1. Select the button you need to be placed on the sidebar. It should come out something like ~\`button-aafl`~.
+1. Select the button you need to be placed on the sidebar. It should come out something like "\`button-aafl`".
 1. Drag the note onto the bottom part of the sidebar.
 
 
