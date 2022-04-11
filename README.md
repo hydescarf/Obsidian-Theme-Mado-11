@@ -23,14 +23,14 @@ That being said, feel free to dock anything wherever you want.
 			> 3. Search for `const clickHandler = async (app, args, inline, id) => {` (around line 1553)  
 			> 4. Look for these right below and cut them  
 			> ```js
-			if (args.type === "command") {  
-				command(app, args);  
-			}  
-			// handle link buttons  
-			if (args.type === "link") {  
-				link(args);  
-			}
-			```
+			> if (args.type === "command") {  
+			> 	command(app, args);  
+			> }  
+			> // handle link buttons  
+			> if (args.type === "link") {  
+			> 	link(args);  
+			> }
+			> ```
 			> 5. Paste them below `const activeView = app.workspace.getActiveViewOfType(obsidian.MarkdownView);` which is just a few lines above them (or one line below the initial search)  
 - Sidebar
 	- Dock-Collapse buttons are hidden, show up when hovered. Position is around the top-left/right corner.
