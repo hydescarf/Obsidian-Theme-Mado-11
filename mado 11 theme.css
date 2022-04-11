@@ -1,0 +1,1096 @@
+:root {
+	--all-font: noto sans jp;
+    --default-font: var(--all-font);
+	--font-editor: var(--all-font);
+	--font-monospace: Fira Code;
+	
+	/* W-11 Palette */
+	--w-white-1:hsla(204, 45.5%, 97.8%, 1);
+	--w-white-2:hsla(210, 45.5%, 95.7%, 1);
+	--w-white-3:hsla(212, 17%, 80%, 0.2);
+	--w-white-6:hsla(212, 17%, 80%, 0.3);
+	--w-white-4:hsla(180, 33.3%, 99.4%, 1);
+	--w-white-5:hsla(207, 10%, 90%, 0.1);
+	
+	--w-blue-1:hsla(209, 95%, 62%, 1);
+	
+	--w-black-1:hsla(0, 0%, 13% ,1);
+	--w-gray-1:hsla(0, 0%, 33%, 1);
+	--w-gray-2:hsla(210, 15%, 70%, 0.2);
+	--w-gray-3:hsla(210, 15%, 20%, 0.2);
+	--w-gray-4:hsla(210, 15%, 30%, 0.5);
+	--w-gray-5:hsla(207, 17.6%, 90%, 1);
+	--w-gray-6:hsla(217, 15.7%, 83.7%, 1);
+	
+	--w-yellow:hsla(60, 100%, 50%, 0.4);
+	--w-orange:hsla(25, 75%, 65%, 1);
+	--w-red-1:hsla(365, 90%, 62%, 1);
+	--w-red-2:hsl(365, 95%, 85%, 1);
+	--w-red-3:hsl(365, 85%, 45%, 1);
+	
+	--button-radius:4px;
+	--window-radius:8px;
+	
+}
+
+
+.theme-light {
+	--background-primary:		var(--w-white-1);
+	--background-secondary:		var(--w-white-2);
+	--background-secondary-alt:	var(--w-gray-5);
+	--background-tertiary:		var(--w-white-3);
+	
+	--background-accent:var(--w-blue-1);	
+	--background-fourth:var(--w-white-4);
+	--background-fifth:var(--w-white-5);
+	
+	--color-black:var(--w-black-1);
+	--color-dark-gray:var(--w-gray-1);
+	--color-accent:var(--w-blue-1);
+	--color-gray:var(--w-gray-2);
+	--color-light-gray:var(--w-gray-3);
+	--color-medium-gray:var(--w-gray-4);
+	--color-gray-6:var(--w-gray-6);
+	
+	--color-highlight:var(--w-yellow);
+	--color-bold:var(--w-orange);
+	
+	
+	--text-normal: var(--w-black-1);
+	--text-error:var(--w-red-1);
+	--text-on-accent: var(--w-white-1);
+	--text-faint: var(--w-gray-6);
+
+	--text-em: #aa8f00;
+	--text-muted: #515f77;
+	
+	
+	--button-selected:var(--w-white-6);
+	--button-hover:var(--w-white-6);
+	--button-selected-hover:var(--w-white-3);
+	
+	--window-shadow:0 1px 3px var(--w-white-3);
+	--window-shadow-hover:0 3px 5px var(--w-white-6);
+	--window-shadow-transparent:0 3px 5px transparent;
+	
+	
+	--hover-transition:0.05s ease-in;
+	--readable-line-length: 45rem;
+	--background-modifier-error:var(--w-red-1);
+	--background-modifier-border:var(--w-gray-5);
+	--interactive-accent:var(--w-blue-1);
+	--border:1px solid var(--w-gray-5);
+	
+
+  
+	--scrollbar-bg: transparent;
+	--scrollbar-thin-thumb: hsla(216, 7%, 14%, 1);
+	--scrollbar-thin-track: transparent;
+	--scrollbar-auto-thumb: hsla(216, 7%, 14%, 1);
+	--scrollbar-auto-track: hsla(210, 10%, 20%, 1);
+	--scrollbar-auto-scrollbar-color-thumb: hsla(216, 7%, 14%, 1);
+	--scrollbar-auto-scrollbar-color-track: hsla(223, 7%, 20%, 1);
+}
+
+
+body{
+	background:var(--background-secondary);
+}
+
+/*
+--------------------------- 
+	Title Bar
+---------------------------
+*/
+.titlebar{
+	background:var(--background-secondary);
+	position:absolute;
+	/* shrink height to avoid unclickable buttons that fall behind it */
+	/* height:0!important; */
+}
+
+.titlebar-text{
+	/* hide obsidian app title */
+	display:none;
+}
+
+.titlebar-button-container.mod-left{
+	/* hide back & forth button */
+	/* display:none; */
+	left:0!important;
+}
+
+/* Hide buttons but show them when hovered */
+.titlebar-button-container.mod-left,
+.titlebar-button-container.mod-right{
+	position:absolute;
+	opacity:0;
+	z-index:1;	
+}
+
+.titlebar-button-container.mod-left:hover,
+.titlebar-button-container.mod-right:hover{
+	opacity:1;
+}
+
+/* Button styling */
+.titlebar-button-container{
+	display:flex;
+}
+.titlebar-button{
+	display:flex;
+	padding:11px 17px;
+	color:var(--color-dark-gray);
+	border-radius:var(--button-radius);
+	transition:0.1s background;
+	opacity:0.7;
+	z-index:10;
+}
+
+.titlebar-button:hover{
+	background:var(--button-hover);
+	color:var(--color-dark-gray);
+}
+
+.titlebar-button.mod-close:hover{
+	color:var(--text-on-accent);
+}
+
+.app-container{
+	/* readjust height as to fill the gap caused by hiding the titlebar */
+	margin-top:-22px;
+	height:calc(100% + 22px);
+}
+
+
+/*
+--------------------------- 
+	Status Bar
+---------------------------
+*/
+/* hide status bar */
+.status-bar{
+	display:none;
+}
+
+
+/*
+--------------------------- 
+	PopOver Embed
+---------------------------
+*/
+.popover.hover-popover{
+	width:500px;
+	max-height:400px;
+}
+.popover.hover-popover .markdown-embed{
+	padding:13px 13px 13px 23px;
+	height:400px;
+}
+
+
+/*
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+	Markdown Common Styling
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+*/
+strong{
+	font-weight:800;
+}
+
+mark{
+	background:var(--color-highlight)!important;
+}
+
+em{
+	color:var(--color-medium-gray);
+}
+
+a{
+	text-decoration:none!important;
+}
+
+hr{
+	background-color:var(--background-modifier-border);
+	height:2px;
+	margin:4rem 0;
+}
+
+.markdown-preview-view,
+.markdown-source-view{
+	padding-inline:63px;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer,
+.markdown-source-view.is-readable-line-width .cm-contentContainer,
+.markdown-source-view.is-line-wrap.is-readable-line-width .cm-content,
+.markdown-source-view.is-line-wrap.is-readable-line-width .cm-line{
+	max-width:1000px!important;
+}
+
+
+/* Whenever pane is opened/entered, or even updated, make an animation suggesting it, can be annoying */
+.workspace-split.mod-vertical.mod-root .markdown-preview-sizer.markdown-preview-section div{
+	animation:0.3s slide-up forwards;
+}
+@keyframes slide-up{
+	0% { transform:translateY(0%); opacity:0; }
+	15% { transform:translateY(5px); opacity:0.1; }
+	25% { transform:translateY(10px); }
+	45% { opacity:0.3s; }
+	65% { opacity:0.7; }
+	100% { transform:translateY(0%); opacity:1; }
+}
+
+/*
+--------------------------- 
+	Markdown Checkbox
+---------------------------
+*/
+input[type=checkbox] {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 3px;
+}
+
+input[type=checkbox]:checked {
+  background-color: var(--color-medium-gray) !important;
+  border: 1px solid var(--color-light-gray);
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' focusable='false' width='1em' height='1em' style='-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);' preserveAspectRatio='xMidYMid meet' viewBox='0 0 20 20'%3E%3Cpath d='M0 11l2-2l5 5L18 3l2 2L7 18z' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.markdown-source-view .task-list-item-checkbox,
+.markdown-preview-view .task-list-item-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top:-3px;
+}
+
+.markdown-preview-view .task-list-item-checkbox {
+  top: 8px;
+  margin-left: -1px;
+  margin-right: 10px;
+}
+
+/* Checkbox Bullet Point Alignment */
+.task-list-item .external-link{
+	vertical-align:middle;
+}
+
+/* Checkbox with link visual fix */
+.task-list-item .external-link{
+	vertical-align:top;
+}
+/*
+--------------------------- 
+	Markdown Unordered / Ordered List
+---------------------------
+*/
+
+/* Build spaces at the end of each listing to distinguish from each other (preview) */
+ul,ol{
+	padding:7px 0;
+	margin-bottom:13px;
+	
+	/* Build spaces at the start of each line (preview) */
+	padding-left:40px;
+}
+.cm-indent{
+	/* Build spaces at the start of each line (source) */
+	padding-left:12px!important;
+	padding-right:12px!important;
+}
+
+/* Build spaces at the end of each listing to distinguish from each other (source) */
+.HyperMD-list-line-1+.HyperMD-list-line:not(.HyperMD-list-line-1):not(.HyperMD-list-line-2),
+.HyperMD-list-line-2+.HyperMD-list-line:not(.HyperMD-list-line-2):not(.HyperMD-list-line-3),
+.HyperMD-list-line-3+.HyperMD-list-line:not(.HyperMD-list-line-3):not(.HyperMD-list-line-4),
+.HyperMD-list-line-4+.HyperMD-list-line:not(.HyperMD-list-line-4):not(.HyperMD-list-line-5),
+.HyperMD-list-line-5+.HyperMD-list-line:not(.HyperMD-list-line-5):not(.HyperMD-list-line-6),
+.HyperMD-list-line-6+.HyperMD-list-line:not(.HyperMD-list-line-6):not(.HyperMD-list-line-7){
+	padding-top:23px!important;
+}
+
+li{
+	padding-block:3px;
+}
+.HyperMD-list-line{
+	padding-block:4px!important;
+}
+
+ul>li::marker{
+	/* Resize bullet point to a smaller version */
+	color:var(--color-dark-gray);
+	font-size:0.6rem;
+}
+
+/* Adjust line position to fit below bullet point (preview) */
+ul ul::before, ol ol::before { 
+	left: -13px!important; 
+}
+
+/* Adjust line position to fit below bullet point (source) */
+/* .cm-formatting-list-ol, */
+.list-bullet{
+	margin-right:7px;
+	margin-left:10px;
+}
+
+/* fix link in bullet list breaking to new line */
+li .external-link{
+	display:inline-block;
+	word-break:break-word;
+	vertical-align:top;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	max-width: 98%;
+}
+
+
+
+/*
+--------------------------- 
+	Markdown Table
+---------------------------
+*/
+
+/* Adds padding spaces & color to the border */
+.markdown-preview-view td,
+.markdown-preview-view th {
+	border: 1px solid var(--color-light-gray)!important;
+	padding:4px 17px;
+}
+
+/* Adds margin for easier identification */
+.markdown-preview-view table{
+	margin:1rem 1rem;
+	width:calc(100% - 2rem);
+}
+
+/* Adds color to the header */
+thead {
+	border-top: 3px solid var(--color-medium-gray);
+	background:var(--color-gray);
+}
+
+/* Adjust bold size of the header */
+.markdown-preview-view th{
+	font-weight:600;
+}
+
+/*
+--------------------------- 
+	Markdown Strikethrough
+---------------------------
+*/
+/* adjust color for strikethrough + on embed */
+ul > li.task-list-item.is-checked{
+	text-decoration-color:var(--text-faint);
+}
+
+del,
+.cm-strikethrough,
+ul > li.task-list-item.is-checked *,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:not([data-task=" "]) span {
+	color:var(--text-faint);
+}
+
+/*
+--------------------------- 
+	Markdown Embed
+---------------------------
+*/
+/* adjust embed padding, visual border */
+.markdown-preview-view .markdown-embed{
+	border: 2px solid var(--background-modifier-border)!important;
+    border-radius: var(--window-radius);
+    padding: 13px 23px!important;
+    margin: 0!important;
+	overflow:auto;
+}
+
+/* Show collapse indicator */
+.markdown-preview-view:not(.allow-fold-lists) .list-collapse-indicator{
+	display:inline-block;
+}
+
+/* Align checkbox and text together */
+.markdown-source-view.mod-cm6 .internal-embed .task-list-item-checkbox{
+	vertical-align:initial;	
+}
+
+/* Adjust margin size for checkboxes in embed */
+.HyperMD-list-line.HyperMD-list-line-2.cm-line .internal-embed .contains-task-list,
+.HyperMD-list-line.HyperMD-list-line-3.cm-line .internal-embed .contains-task-list,
+.markdown-preview-view blockquote .markdown-embed .contains-task-list{
+	margin:3px;
+}
+
+
+/*
+--------------------------- 
+	Markdown Quote
+---------------------------
+*/
+.markdown-preview-view blockquote {
+	margin:13px 0px 13px 11px;
+	padding:23px 27px;
+	border-radius:0 8px 8px 0;
+	background:var(--background-secondary);
+	border:none;
+	border-left:5px solid var(--background-modifier-border);
+	color:var(--text-muted);
+}
+
+/* adjust quote issue overflowing */
+.markdown-preview-view blockquote p{
+	overflow:hidden;
+}
+
+.markdown-preview-view blockquote p+p{
+	/* add padding-top to siblings for easier reading*/
+	padding-top:13px;
+}
+
+.HyperMD-quote{
+	padding:23px 13px!important;
+}
+.HyperMD-quote+.HyperMD-quote{
+	/* remove siblings padding-top */
+	padding-top:0!important;
+}
+
+
+
+
+
+/*
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+	Dock/Sidebar Layout W11-Styling
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+*/
+
+/* Left dock Ribbon hidden (includes expand button) */
+.workspace-ribbon{
+	visibility:collapse;
+	position:absolute;
+}
+
+/* Show expand button when hovered */
+.workspace-ribbon-collapse-btn{
+	position:fixed;
+	visibility:visible;
+	top:0;
+	opacity:0;
+	padding:7px;
+	color:var(--color-dark-gray);
+	border-radius:var(--button-radius);
+	transition:0.1s background, 0.1s opacity;
+}
+
+.mod-right.workspace-ribbon,
+.mod-right .workspace-ribbon-collapse-btn{
+	right:0;
+}
+.workspace-ribbon-collapse-btn:hover{
+	visibility:visible;
+	opacity:1;
+	background:var(--button-hover);
+	color:var(--color-dark-gray);
+}
+
+
+/* Hide dock's tab menu, and show them when hovered  */
+.workspace-tab-header-container{
+	position:absolute!important;
+	top:0;
+	opacity:0;
+	position:relative;
+	z-index:1;
+	height:1px;
+	transition:opacity 0.2s;
+	border-radius:var(--button-radius);
+	border:var(--border);
+	box-shadow:var(--window-shadow);
+	width:100%;
+}
+.workspace-tab-header-container:hover{
+	opacity:1;
+	height:auto;
+}
+
+/*
+--------------------------- 
+	Note Title
+---------------------------
+*/
+.view-header{
+	height:auto;
+	display:flex;
+	align-items:center;
+	padding:13px 17px;
+	border:none!important;
+	background:none!important;
+}
+
+.view-header-title{
+	font-size:1.25rem;
+	border-radius:var(--button-radius);
+	padding:11px 17px;
+	margin-left:0px;
+	border:1px solid transparent;
+	transition:border 0.2s, background 0.2s;
+}
+
+.view-header-title:hover,.view-header-title:focus{
+	background:var(--background-fifth);
+	border:var(--border);
+}
+
+/* Hide Title gradient background */
+.view-header-title-container:after{
+	background:none!important;
+}
+
+.view-action,.view-header-icon{
+	display:flex;
+	padding:11px;
+	margin:0 3px;
+	color:var(--color-dark-gray);
+	border-radius:var(--button-radius);
+	transition:0.1s background, 0.1s opacity;
+	top:0;
+}
+
+.view-action:hover,.view-header-icon:hover{
+	background:var(--button-hover);
+	color:var(--color-dark-gray);
+}
+
+.view-action:active,.view-header-icon:active{
+	opacity:0.75;
+}
+
+/* Adjust Title Background color */
+.workspace-split.mod-vertical.mod-root .workspace-leaf-content{
+	background:var(--background-primary)!important;
+}
+
+/*
+--------------------------- 
+	Pane Resizer Handle
+---------------------------
+*/
+/* Hide them at default, shows only when hovered */
+/* Also adjusted thickness for easier finding/gripping */
+.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle{
+	background:none;
+	height:7px!important;
+}
+
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle{
+	background:none;
+	width:7px!important;
+}
+
+.workspace-leaf-resize-handle:hover{
+	background:var(--color-accent)!important;
+}
+
+
+/*
+--------------------------- 
+	Main Pane Border Styling 
+---------------------------
+*/
+.workspace-split.mod-horizontal.mod-left-split.is-collapsed+.workspace-split.mod-root > .workspace-leaf:first-of-type .workspace-leaf-content{
+	border-top-left-radius: 0px;
+}
+
+.workspace-split.mod-root > .workspace-leaf:first-of-type .workspace-leaf-content{
+	border-top-right-radius: 0px;
+	/* border-top-left-radius: 43px; */
+	border-left:var(--border);
+}
+
+/*
+--------------------------- 
+	Left Dock Styling
+---------------------------
+*/
+/* markdown-preview-sizer is note placed onto the dock */
+
+/* Left dock navigation hidden (new note, new folder, reorder) */
+.mod-left-split .nav-header{
+	display:none;
+}
+
+/* Left dock Vault title hidden */
+.nav-folder.mod-root>.nav-folder-title{
+	display:none;
+}
+
+/* Give space for title-bar dragging */
+.mod-left-split{
+	padding-top:22px;
+}
+
+.workspace-leaf-content[data-type="file-explorer"],
+.workspace-leaf-content[data-type="starred"],
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer div{
+	background:var(--background-secondary);
+	display:flex;
+	flex-direction:column;
+	gap:4px;
+	user-select:none;
+	padding-inline:8px;
+	padding-block:8px;	
+}
+
+.nav-folder-children,
+.item-list,
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer p{
+	display:flex;
+	flex-direction:column;
+	gap:4px;
+}
+
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer,
+.mod-left-split .workspace-tabs .view-content .markdown-preview-view.is-readable-line-width,
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer p{
+	padding:0!important;
+	margin:0!important;
+}
+
+/* Remove br (new line) */
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer br{
+	display:none;
+}
+
+
+/* Remove pusher? to decrease addition height */
+.mod-left-split .workspace-tabs .view-content .markdown-preview-pusher{
+	display:none!important;
+}
+
+/* Define height to achieve margin-top:auto which automatically push the contents to the bottom */
+.mod-left-split .workspace-tabs .view-content div{
+	height:100%;
+}
+.mod-left-split .workspace-tabs .view-content p:first-child{
+	margin-top:auto!important;
+}
+/* Also have to remove min-height to achieve function above */
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer.markdown-preview-section{
+	min-height:0!important;
+}
+
+ /* Ignore padding when the setting Readable Line Length is turned off */
+.mod-left-split .workspace-tabs .view-content .markdown-preview-view{
+	padding:0;
+}
+
+/* Button Plugin: Adjust style to match the current theme */
+.mod-left-split .workspace-tabs .view-content .button-default{
+	border:none;
+	background:none;
+	color:var(--color-black);
+	margin:0;
+	box-shadow:none;
+	width:100%;
+}
+.mod-left-split .workspace-tabs .view-content .button-default:hover{
+	transform:none;
+}
+
+/* Button styling */
+.nav-file-title,
+.nav-folder-title,
+.mod-left-split .workspace-tabs .view-content .button-default{
+	padding:7px 15px;
+	border-radius:var(--button-radius);
+	transition:var(--hover-transition);
+	transition-property:background, opacity;
+	opacity:1;
+	display:flex;
+	align-items:center;
+	position:relative;
+	overflow:hidden; /* to hide left border animation */
+	font-size:0.9rem;
+	color:var(--color-black);
+	width:100%;
+	white-space:nowrap;
+}
+.mod-left-split .workspace-tabs .view-content .button-default{
+	padding:11px 15px;
+}
+
+/* Icon Folder Plugin: Adjust button icon size */
+.mod-left-split .nav-file-title svg,
+.nav-folder-title svg,
+.mod-left-split .workspace-tabs .view-content .button-default svg{
+	width:24px;
+	height:24px;
+	margin-right:3px;
+}
+
+/* Adjust spacing between icon and text*/
+.mod-left-split .workspace-tabs .view-content .button-default svg{
+	margin-right:11px;
+	/* Prevent icon from shrinking when resizing */
+	flex-shrink:0;
+}
+
+.nav-file-title:active,
+.side-dock-ribbon-action:active{
+	opacity:0.8;
+}
+
+
+/* Navigation Button Left Border Styling and Animation */
+.nav-file-title::before,
+.side-dock-ribbon-action::before{
+	content:"";
+	position:absolute;
+	left:0;
+	top:50%;
+	width:4px;
+	height:0%;
+	border-radius:30%;
+	background:var(--color-accent);
+	transform:translateY(10%);
+	transition:all 0.3s cubic-bezier(1,.1,.36,1.22);
+}
+
+/* Navigation Button Selected and Hover */
+.nav-file-title.is-active{
+	background:var(--button-selected);
+}
+
+.nav-file-title.is-active::before{
+	height:55%;
+	transform:translateY(-50%);
+}
+
+.nav-file-title.is-active svg{
+	animation:0.3s bounceback;
+}
+
+.nav-file-title:hover,
+.side-dock-ribbon-action:hover,
+.mod-left-split .workspace-tabs .view-content .button-default:hover{
+	background:var(--button-hover)!important;
+}
+
+.nav-file-title.is-active:hover{
+	background:var(--button-selected-hover);
+}
+
+@keyframes bounceback{
+	0% { transform:translateY(0%); }
+	60% { transform:translateY(10%); }
+	100% { transform:translateY(0%); }
+}
+
+/* Prevent from overflowing and show ... instead */
+.nav-file-title-content{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/*
+--------------------------- 
+	Right Dock Styling
+---------------------------
+*/
+.workspace-split.mod-horizontal.mod-right-split{
+	padding:23px 33px;
+}
+
+/* Adjust padding */
+.workspace-split.mod-horizontal.mod-right-split .markdown-preview-view{
+	padding:11px 43px;
+}
+
+/* Remove additional padding at the bottom */
+.workspace-split.mod-horizontal.mod-right-split .markdown-preview-view .markdown-preview-sizer.markdown-preview-section{
+	padding:0!important;
+}
+
+/* Remove background to match main pane's color */
+.workspace-split.mod-horizontal.mod-right-split{
+	background:var(--background-primary)!important;
+}
+
+/* Adjust embed size to fit into smaller dock */
+.workspace-split.mod-horizontal.mod-right-split .markdown-preview-view .internal-embed .markdown-embed .markdown-preview-view{
+	padding:0!important;
+	min-height:0;
+}
+
+.workspace-split.mod-horizontal.mod-right-split .workspace-leaf-content,
+.workspace-split.mod-horizontal.mod-right-split .workspace-tabs,
+.workspace-split.mod-horizontal.mod-right-split .workspace-ribbon.side-dock-ribbon,
+.workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-container,
+.workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-inner{
+	background:var(--background-primary)!important;
+}
+
+.workspace-split.mod-horizontal.mod-right-split{
+	padding-block:43px 43px;
+	gap:33px;
+}
+
+.workspace-split.mod-horizontal.mod-right-split .workspace-tabs .workspace-leaf-content{
+	background:var(--background-fourth)!important;
+}
+
+.workspace-split.mod-horizontal.mod-right-split .workspace-tabs{
+	background:var(--background-fourth)!important;
+	border-radius:var(--window-radius);
+	border:var(--border);
+	box-shadow:var(--window-shadow);
+}
+
+/*
+--------------------------- 
+	Overall / Remaining Styling
+---------------------------
+*/
+
+
+/* Adjust remaining background colours to match the theme */
+/* Includes Docks' tab-menu buttons */
+.workspace-leaf-content,
+.workspace-tabs,
+.workspace-ribbon.side-dock-ribbon,
+.workspace-tab-header-container,
+.workspace-tab-header-inner{
+	background:var(--background-secondary)!important;
+}
+
+/* Remove background from the back of the main pane */
+.workspace-split.mod-root{
+	background:none!important;
+}
+
+
+
+
+/*
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+	Settings
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+*/
+
+.modal{
+	border-radius:var(--window-radius);
+	animation:0.2s popup forwards;
+}
+@keyframes popup{
+	0% { transform:scale(70%); opacity:0; }
+	15% { transform:scale(80%); opacity:0.1; }
+	35% { transform:scale(102%);  }
+	45% { opacity:0.3; }
+	65% { opacity:0.7; }
+	100% { transform:scale(100%); opacity:1; }
+}
+
+ /* Adjust width and height */
+.mod-settings{
+	max-width:67vw!important;
+	height:83vh!important;
+}
+
+.vertical-tabs-container,
+.vertical-tab-header,
+.vertical-tab-content-container{
+	height:100%!important;
+}
+
+
+
+.modal.mod-settings .vertical-tab-header{
+	flex:0 0 243px;
+}
+
+ /* close button styling */
+.modal-close-button{
+	display:flex;
+	padding:13px 11px 14px;
+	color:var(--color-dark-gray);
+	border-radius:var(--button-radius);
+	transition:0.1s background,0.1s opacity;
+	z-index:10;
+	opacity:0.7;
+	top:5px;
+	right:5px;
+}
+.modal-close-button:hover{
+	background:var(--button-hover);
+	color:var(--color-dark-gray);
+	opacity:1;
+}
+
+/* Make font red? */
+.mod-warning{
+	color:var(--text-error);
+}
+
+/* Make text readable in red background */
+button.mod-warning,
+button.mod-cta{
+	color:var(--text-on-accent);
+}
+
+
+/* Button styling for small icon */
+.setting-editor-extra-setting-button.clickable-icon{
+	display:flex;
+	padding:11px;
+	color:var(--color-dark-gray);
+	border-radius:var(--button-radius);
+	transition:0.1s background;
+	opacity:0.7;
+	margin:0;
+}
+
+.pickr+.setting-editor-extra-setting-button.clickable-icon,
+.setting-editor-extra-setting-button.clickable-icon+.checkbox-container,
+.setting-editor-extra-setting-button.clickable-icon+.mod-cta{
+	margin-left:10px;
+}
+.setting-editor-extra-setting-button.clickable-icon:hover{
+	background:var(--button-hover);
+	color:var(--color-dark-gray);
+}
+
+/* Make text readable in red background */
+.setting-hotkey.mod-active,
+.setting-hotkey.has-conflict{
+	color:var(--text-on-accent)!important;
+}
+
+
+/*
+--------------------------- 
+	Settings - Left sidebar
+---------------------------
+*/
+
+
+.vertical-tab-header{
+	background:var(--background-secondary);
+	padding:0!important;
+	display:flex;
+	flex-direction:column;
+	gap:33px;
+}
+
+/* Remove top padding */
+.vertical-tab-header-group{
+	padding:0;
+}
+
+/* Button styling */
+.vertical-tab-header-group-items{
+	background:var(--background-secondary);
+	display:flex;
+	flex-direction:column;
+	gap:4px;
+	user-select:none;
+	padding-inline:8px;
+	padding-block:8px;
+}
+
+.vertical-tab-nav-item{
+	padding:7px 15px;
+	border-radius:var(--button-radius);
+	transition:var(--hover-transition);
+	transition-property:background, opacity;
+	opacity:1;
+	display:flex;
+	align-items:center;
+	position:relative;
+	overflow:hidden; /* to hide left border animation */
+	font-size:0.9rem;
+	color:var(--color-black);
+	width:100%;
+	white-space:nowrap;
+	border:none;
+	background:none;
+}
+
+.vertical-tab-nav-item::before{
+	content:"";
+	position:absolute;
+	left:0;
+	top:50%;
+	width:4px;
+	height:0%;
+	border-radius:30%;
+	background:var(--color-accent);
+	transform:translateY(10%);
+	transition:all 0.3s cubic-bezier(1,.1,.36,1.22);
+}
+
+.vertical-tab-nav-item.is-active{
+	background:var(--button-selected);
+}
+
+.vertical-tab-nav-item.is-active::before{
+	height:55%;
+	transform:translateY(-50%);
+}
+
+.vertical-tab-nav-item:hover{
+	background:var(--button-hover)!important;
+}
+
+.vertical-tab-nav-item.is-active:hover{
+	background:var(--button-selected-hover);
+}
+
+/* Make it so that the title can be distinguihed from the buttons */
+.vertical-tab-header-group-title{
+	background:var(--color-gray);
+	color:var(--text-muted);
+	font-size:0.75rem;
+	padding:7px 13px;
+	border-top:1px solid var(--color-gray-6);
+	border-bottom:1px solid var(--color-gray-6);
+}
+
+
+/*
+--------------------------- 
+	Settings - Right Content
+---------------------------
+*/
+
+.vertical-tab-content-container{
+	background:var(--background-primary);
+	border-left:var(--border);
+	padding-top:53px!important;
+}
+
+.vertical-tab-content{
+	background:var(--background-primary);
+}
+
+
