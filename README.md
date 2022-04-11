@@ -42,21 +42,22 @@ That being said, feel free to dock anything wherever you want.
 1. Install "Buttons Plugin".
 1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should looks like below. You may use an SVG link as Icon in the "name" section
 
-> \```button
-
-name <svg/> "Insert an SVG link here" </svg> New Note
-
+```
+```button
+name <svg/> **Insert an SVG link here** </svg> New Note
 type command
-
-action Create a New Note
-
+action Create a New Note 
 \```
+```
 
 1. Create another note, and insert an "inline-button" (Ctrl+P, search for "Buttons: Insert Inline Button").
-1. Select the button you need to be placed on the sidebar. It should come out something like ``button-aafl``.
+1. Select the button you need to be placed on the sidebar. It should come out something like \`button-aafl`.
 1. Drag the note onto the bottom part of the sidebar.
 
-- An adjustment to the Buttons Plugin `main.js` file is required as of April 2022, to make the buttons work in the sidebar.
+
+
+#### Adjustment for Buttons Plugin
+An adjustment to the Buttons Plugin `main.js` file is required as of April 2022, to make the buttons work in the sidebar.
 1. Go to your plugin folders
 2. Look for Buttons Folder, and open the file "main.js" inside it 
 3. Search for `const clickHandler = async (app, args, inline, id) => {` (around line 1553)  
