@@ -1,181 +1,155 @@
 :root {
-	--all-font: noto sans jp;
-    --default-font: var(--all-font);
-	--font-editor: var(--all-font);
-	--font-monospace: Fira Code;
+	/* Mado-11 Palette */
+	--mado-white-1:hsla(204, 45%, 97%, 1);
+	--mado-white-2:hsla(210, 45%, 95%, 1);
+	--mado-white-3:hsla(212, 17%, 80%, 0.2);
+	--mado-white-6:hsla(212, 17%, 80%, 0.3);
+	--mado-white-4:hsla(180, 33%, 99%, 1);
+	--mado-white-5:hsla(207, 10%, 90%, 0.1);
 	
-	/* W-11 Palette */
-	--w-white-1:hsla(204, 45.5%, 97.8%, 1);
-	--w-white-2:hsla(210, 45.5%, 95.7%, 1);
-	--w-white-3:hsla(212, 17%, 80%, 0.2);
-	--w-white-6:hsla(212, 17%, 80%, 0.3);
-	--w-white-4:hsla(180, 33.3%, 99.4%, 1);
-	--w-white-5:hsla(207, 10%, 90%, 0.1);
+	--mado-blue-1:hsla(209, 95%, 62%, 1);
+	--mado-blue-2:hsla(209, 85%, 72%, 0.5);
 	
-	--w-blue-1:hsla(209, 95%, 62%, 1);
+	--mado-black-1:hsla(0, 0%, 13%, 1);
+	--mado-black-2:hsla(220, 20%, 35%, 1);
+	--mado-gray-1:hsla(0, 0%, 33%, 1);
+	--mado-gray-2:hsla(210, 15%, 70%, 0.2);
+	--mado-gray-3:hsla(210, 15%, 20%, 0.2);
+	--mado-gray-4:hsla(210, 15%, 30%, 0.5);
+	--mado-gray-5:hsla(207, 17%, 90%, 1);
+	--mado-gray-6:hsla(217, 15%, 83%, 1);
 	
-	--w-black-1:hsla(0, 0%, 13% ,1);
-	--w-gray-1:hsla(0, 0%, 33%, 1);
-	--w-gray-2:hsla(210, 15%, 70%, 0.2);
-	--w-gray-3:hsla(210, 15%, 20%, 0.2);
-	--w-gray-4:hsla(210, 15%, 30%, 0.5);
-	--w-gray-5:hsla(207, 17.6%, 90%, 1);
-	--w-gray-6:hsla(217, 15.7%, 83.7%, 1);
-	
-	--w-yellow:hsla(60, 100%, 50%, 0.4);
-	--w-orange:hsla(25, 75%, 65%, 1);
-	--w-red-1:hsla(365, 90%, 62%, 1);
-	--w-red-2:hsl(365, 95%, 85%, 1);
-	--w-red-3:hsl(365, 85%, 45%, 1);
+	--mado-yellow:hsla(60, 100%, 50%, 0.4);
+	--mado-orange:hsla(25, 75%, 65%, 1);
+	--mado-red-1:hsla(365, 90%, 62%, 1);
+	--mado-red-2:hsl(365, 95%, 85%, 1);
+	--mado-red-3:hsl(365, 85%, 45%, 1);
 	
 	--button-radius:4px;
 	--window-radius:8px;
+	--readable-line-length:45rem;
 	
+	--scrollbar-bg: transparent;
 }
 
 
 .theme-light {
-	--background-primary:		var(--w-white-1);
-	--background-secondary:		var(--w-white-2);
-	--background-secondary-alt:	var(--w-gray-5);
-	--background-tertiary:		var(--w-white-3);
+	--color-black:		var(--mado-black-1);
+	--color-dark-gray:	var(--mado-gray-1);
+	--color-accent:		var(--mado-blue-1);
+	--color-accent-alt:	var(--mado-blue-2);
+	--color-gray:		var(--mado-gray-2);
+	--color-light-gray:	var(--mado-gray-3);
+	--color-medium-gray:var(--mado-gray-4);
 	
-	--background-accent:var(--w-blue-1);	
-	--background-fourth:var(--w-white-4);
-	--background-fifth:var(--w-white-5);
+	--modal-group-border:	var(--mado-gray-6);
+	--button-selected:		var(--mado-white-6);
+	--button-hover:			var(--mado-white-6);
+	--button-selected-hover:var(--mado-white-3);
 	
-	--color-black:var(--w-black-1);
-	--color-dark-gray:var(--w-gray-1);
-	--color-accent:var(--w-blue-1);
-	--color-gray:var(--w-gray-2);
-	--color-light-gray:var(--w-gray-3);
-	--color-medium-gray:var(--w-gray-4);
-	--color-gray-6:var(--w-gray-6);
-	
-	--color-highlight:var(--w-yellow);
-	--color-bold:var(--w-orange);
-	
-	
-	--text-normal: var(--w-black-1);
-	--text-error:var(--w-red-1);
-	--text-on-accent: var(--w-white-1);
-	--text-faint: var(--w-gray-6);
-
-	--text-em: #aa8f00;
-	--text-muted: #515f77;
-	
-	
-	--button-selected:var(--w-white-6);
-	--button-hover:var(--w-white-6);
-	--button-selected-hover:var(--w-white-3);
-	
-	--window-shadow:0 1px 3px var(--w-white-3);
-	--window-shadow-hover:0 3px 5px var(--w-white-6);
+	--window-shadow:			0 1px 3px var(--mado-white-3);
+	--window-shadow-hover:		0 3px 5px var(--mado-white-6);
 	--window-shadow-transparent:0 3px 5px transparent;
 	
+	--border:1px solid var(--mado-gray-5);
 	
-	--hover-transition:0.05s ease-in;
-	--readable-line-length: 45rem;
-	--background-modifier-error:var(--w-red-1);
-	--background-modifier-border:var(--w-gray-5);
-	--interactive-accent:var(--w-blue-1);
-	--border:1px solid var(--w-gray-5);
 	
-
-  
-	--scrollbar-bg: transparent;
-	--scrollbar-thin-thumb: hsla(216, 7%, 14%, 1);
-	--scrollbar-thin-track: transparent;
-	--scrollbar-auto-thumb: hsla(216, 7%, 14%, 1);
-	--scrollbar-auto-track: hsla(210, 10%, 20%, 1);
-	--scrollbar-auto-scrollbar-color-thumb: hsla(216, 7%, 14%, 1);
-	--scrollbar-auto-scrollbar-color-track: hsla(223, 7%, 20%, 1);
+	--background-primary:		var(--mado-white-1);
+	--background-secondary:		var(--mado-white-2);
+	--background-secondary-alt:	var(--mado-gray-5);
+	--background-tertiary:		var(--mado-white-3);
+	
+	--background-accent:	var(--mado-blue-1);	
+	--background-fourth:	var(--mado-white-4);
+	--background-fifth:		var(--mado-white-5);
+	--background-sixth:		var(--mado-white-4);
+	
+	--text-code:		var(--mado-red-3);
+	--text-normal:		var(--mado-black-1);
+	--text-error:		var(--mado-red-1);
+	--text-on-accent:	var(--mado-white-1);
+	--text-faint:		var(--mado-gray-6);
+	--text-highlight-bg:var(--mado-yellow);
+	--text-bold:		var(--mado-black-2);
+	--text-em:			var(--mado-gray-4);
+	--text-muted:		hsla(218, 19%, 39%, 1);
+	
+	--background-modifier-error:	var(--mado-red-1);
+	--background-modifier-border:	var(--mado-gray-5);
+	--interactive-accent:			var(--mado-blue-1);
+	--indentation-guide:			var(--mado-gray-5);	
 }
 
 .theme-dark {
 	
 	/* dark mode quick hack */
-	--w-white-1:hsla(215, 17%, 19%, 1);
-	--w-white-2:hsla(214, 24%, 15%, 1);
-	--w-white-3:hsla(212, 17%, 10%, 0.2);
-	--w-white-6:hsla(212, 17%, 0%, 0.3);
-	--w-white-4:hsla(215, 22%, 13%, 1);
-	--w-white-5:hsla(207, 10%, 10%, 0.1);
+	--mado-white-1:hsla(215, 17%, 19%, 1);
+	--mado-white-2:hsla(214, 24%, 15%, 1);
+	--mado-white-3:hsla(212, 17%, 22%, 0.9);
+	--mado-white-6:hsla(212, 17%, 0%, 0.3);
+	--mado-white-4:hsla(215, 22%, 13%, 1);
+	--mado-white-5:hsla(207, 10%, 10%, 0.1);
 	
-	--w-blue-1:hsla(209, 95%, 62%, 1);
+	--mado-black-1:hsla(0, 0%, 73%, 1);
+	--mado-black-2:hsla(213, 33%, 65%, 1);
+	--mado-gray-1:hsla(0, 0%, 83%, 1);
+	--mado-gray-2:hsla(210, 25%, 5%, 0.3);
+	--mado-gray-3:hsla(210, 15%, 50%, 0.4);
+	--mado-gray-4:hsla(210, 15%, 70%, 0.5);
+	--mado-gray-5:hsla(207, 17%, 10%, 0.5);
+	--mado-gray-6:hsla(217, 18%, 50%, 0.7);
 	
-	--w-black-1:hsla(0, 0%, 80%, 1);
-	--w-gray-1:hsla(0, 0%, 83%, 1);
-	--w-gray-2:hsla(210, 25%, 5%, 0.3);
-	--w-gray-3:hsla(210, 15%, 50%, 0.4);
-	--w-gray-4:hsla(210, 15%, 70%, 0.5);
-	--w-gray-5:hsla(207, 17.6%, 10%, 0.5);
-	--w-gray-6:hsla(217, 15.7%, 33.7%, 1);
-	
-	--w-yellow:hsla(60, 80%, 30%, 0.5);
-	--w-orange:hsla(25, 75%, 65%, 1);
-	--w-red-1:hsla(365, 90%, 62%, 1);
-	--w-red-2:hsl(365, 95%, 85%, 1);
-	--w-red-3:hsl(365, 85%, 45%, 1);
+	--mado-yellow:hsla(45, 63%, 43%, 1);
 	
 	
-	--indentation-guide:var(--w-gray-5);
-	
-	--background-primary:		var(--w-white-1);
-	--background-secondary:		var(--w-white-2);
-	--background-secondary-alt:	var(--w-gray-5);
-	--background-tertiary:		var(--w-white-3);
-	
-	--background-accent:var(--w-blue-1);	
-	--background-fourth:var(--w-white-4);
-	--background-fifth:var(--w-white-5);
-	
-	--color-black:var(--w-black-1);
-	--color-dark-gray:var(--w-gray-1);
-	--color-accent:var(--w-blue-1);
-	--color-gray:var(--w-gray-2);
-	--color-light-gray:var(--w-gray-3);
-	--color-medium-gray:var(--w-gray-4);
-	--color-gray-6:var(--w-gray-6);
-	
-	--color-highlight:var(--w-yellow);
-	--color-bold:var(--w-orange);
 	
 	
-	--text-normal: var(--w-black-1);
-	--text-error:var(--w-red-1);
-	--text-on-accent: var(--w-white-1);
-	--text-faint: var(--w-gray-6);
-
-	--text-em: var(--w-gray-5);
-	--text-muted: hsl(218, 19%, 57%);
+	--color-black:		var(--mado-black-1);
+	--color-dark-gray:	var(--mado-gray-1);
+	--color-accent:		var(--mado-blue-1);
+	--color-accent-alt:	var(--mado-blue-2);
+	--color-gray:		var(--mado-gray-2);
+	--color-light-gray:	var(--mado-gray-3);
+	--color-medium-gray:var(--mado-gray-4);
 	
+	--modal-group-border:	var(--mado-gray-6);
+	--button-selected:		var(--mado-white-6);
+	--button-hover:			var(--mado-white-6);
+	--button-selected-hover:var(--mado-white-3);
 	
-	--button-selected:var(--w-white-6);
-	--button-hover:var(--w-white-6);
-	--button-selected-hover:var(--w-white-3);
-	
-	--window-shadow:0 1px 3px var(--w-white-3);
-	--window-shadow-hover:0 3px 5px var(--w-white-6);
+	--window-shadow:			0 1px 3px var(--mado-white-5);
+	--window-shadow-hover:		0 3px 5px var(--mado-white-6);
 	--window-shadow-transparent:0 3px 5px transparent;
 	
+	--border:1px solid var(--mado-gray-5);
 	
-	--hover-transition:0.05s ease-in;
-	--readable-line-length: 45rem;
-	--background-modifier-error:var(--w-red-1);
-	--background-modifier-border:var(--w-gray-5);
-	--interactive-accent:var(--w-blue-1);
-	--border:1px solid var(--w-gray-5);
 	
-
-  
-	--scrollbar-bg: transparent;
-	--scrollbar-thin-thumb: hsla(216, 7%, 14%, 1);
-	--scrollbar-thin-track: transparent;
-	--scrollbar-auto-thumb: hsla(216, 7%, 14%, 1);
-	--scrollbar-auto-track: hsla(210, 10%, 20%, 1);
-	--scrollbar-auto-scrollbar-color-thumb: hsla(216, 7%, 14%, 1);
-	--scrollbar-auto-scrollbar-color-track: hsla(223, 7%, 20%, 1);
+	
+	--background-primary:		var(--mado-white-1);
+	--background-secondary:		var(--mado-white-2);
+	--background-secondary-alt:	var(--mado-gray-5);
+	--background-tertiary:		var(--mado-white-3);
+	--background-primary-alt:	var(--mado-white-5);
+	
+	--background-accent:	var(--mado-blue-1);	
+	--background-fourth:	var(--mado-white-3);
+	--background-fifth:		var(--mado-white-5);
+	--background-sixth:		var(--mado-white-5);
+	
+	--text-code:		var(--mado-red-1);
+	--text-normal:		var(--mado-black-1);
+	--text-error:		var(--mado-red-1);
+	--text-on-accent:	var(--mado-white-1);
+	--text-faint:		var(--mado-gray-6);
+	--text-highlight-bg:var(--mado-yellow);
+	--text-bold:		var(--mado-black-2);
+	--text-em:			var(--mado-gray-6);
+	--text-muted: 		hsl(218, 17%, 58%);
+	
+	--background-modifier-error:	var(--mado-red-1);
+	--background-modifier-border:	var(--mado-gray-5);
+	--interactive-accent:			var(--mado-blue-1);
+	--indentation-guide:			var(--mado-gray-3);
 }
 
 
@@ -282,16 +256,25 @@ body{
 --------------------------- --------------------------- 
 --------------------------- --------------------------- 
 */
-strong{
+strong,
+.cm-strong{
 	font-weight:800;
+	color:var(--text-bold)!important;
 }
 
-mark{
-	background:var(--color-highlight)!important;
+mark,
+.cm-highlight{
+	background:var(--text-highlight-bg)!important;
+}
+.theme-dark mark,
+.theme-dark .cm-highlight{
+	background:none!important;
+	border-bottom:2px solid var(--text-highlight-bg)!important;
 }
 
-em{
-	color:var(--color-medium-gray);
+em,
+.cm-em{
+	color:var(--text-em)!important;
 }
 
 a{
@@ -316,6 +299,10 @@ hr{
 	max-width:1000px!important;
 }
 
+.markdown-rendered code{
+	background:none;
+	color:var(--text-code);	
+}
 
 /* Whenever pane is opened/entered, or even updated, make an animation suggesting it, can be annoying */
 .workspace-split.mod-vertical.mod-root .markdown-preview-sizer.markdown-preview-section div{
@@ -547,7 +534,8 @@ ul > li.task-list-item.is-checked *,
 }
 
 .HyperMD-quote{
-	padding:23px 13px!important;
+	padding:13px 13px!important;
+	text-indent:0!important;
 }
 .HyperMD-quote+.HyperMD-quote{
 	/* remove siblings padding-top */
@@ -613,6 +601,11 @@ ul > li.task-list-item.is-checked *,
 .workspace-tab-header-container:hover{
 	opacity:1;
 	height:auto;
+}
+
+/* remove border-radius on icons */
+.workspace-tab-header-inner{
+	border-radius:0!important;
 }
 
 /*
@@ -807,7 +800,7 @@ ul > li.task-list-item.is-checked *,
 .mod-left-split .workspace-tabs .view-content .button-default{
 	padding:7px 15px;
 	border-radius:var(--button-radius);
-	transition:var(--hover-transition);
+	transition:0.05s ease-in;
 	transition-property:background, opacity;
 	opacity:1;
 	display:flex;
@@ -941,11 +934,11 @@ ul > li.task-list-item.is-checked *,
 }
 
 .workspace-split.mod-horizontal.mod-right-split .workspace-tabs .workspace-leaf-content{
-	background:var(--background-fourth)!important;
+	background:var(--background-sixth)!important;
 }
 
 .workspace-split.mod-horizontal.mod-right-split .workspace-tabs{
-	background:var(--background-fourth)!important;
+	background:var(--background-sixth)!important;
 	border-radius:var(--window-radius);
 	border:var(--border);
 	box-shadow:var(--window-shadow);
@@ -1107,7 +1100,7 @@ button.mod-cta{
 .vertical-tab-nav-item{
 	padding:7px 15px;
 	border-radius:var(--button-radius);
-	transition:var(--hover-transition);
+	transition:0.05s ease-in;
 	transition-property:background, opacity;
 	opacity:1;
 	display:flex;
@@ -1158,8 +1151,8 @@ button.mod-cta{
 	color:var(--text-muted);
 	font-size:0.75rem;
 	padding:7px 13px;
-	border-top:1px solid var(--color-gray-6);
-	border-bottom:1px solid var(--color-gray-6);
+	border-top:1px solid var(--modal-group-border);
+	border-bottom:1px solid var(--modal-group-border);
 }
 
 
@@ -1180,3 +1173,158 @@ button.mod-cta{
 }
 
 
+
+/*
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+	Special Class: mado-header
+--------------------------- --------------------------- 
+--------------------------- --------------------------- 
+*/
+.mado-header .markdown-preview-section>div>*{
+	position:relative;
+	padding:13px 33px 13px 63px;
+	margin:0 -30px;
+	border:var(--border);
+	border-radius:var(--button-radius);
+	background:var(--background-fourth);
+	transition:background 0.1s;
+}
+
+.mado-header .markdown-preview-section>div>*:not(h1){
+	/* border-left:3px solid var(--color-accent-alt)!important; */
+}
+.mado-header .markdown-preview-section>div>*:not(h1):before{
+	/* content:""; */
+	/* position:absolute; */
+	/* left:11px; */
+	/* top:0; */
+	/* height:calc(100% - 0px); */
+	/* border-left:3px solid var(--color-accent-alt)!important; */
+}
+
+.mado-header .markdown-preview-section>div.is-collapsed h2,
+.mado-header .markdown-preview-section>div.is-collapsed h3,
+.mado-header .markdown-preview-section>div.is-collapsed h4,
+.mado-header .markdown-preview-section>div.is-collapsed h5,
+.mado-header .markdown-preview-section>div.is-collapsed h6{
+	/* indicate it's collapsed */
+	
+}
+
+
+.mado-header h1{
+	font-size:1.2rem;
+	font-weight:700;
+	padding:13px 43px!important;
+	/* margin-top:33px!important; */
+	margin-top:17px!important;
+}
+.mado-header h2{
+	font-size:1.17rem;
+}
+.mado-header h3{
+	font-size:1.07rem;
+}
+.mado-header h4{
+	font-size:1rem;
+}
+.mado-header h5{
+	font-size:1rem;
+	font-weight:700;
+}
+.mado-header h6{
+	font-size:1rem;
+	font-weight:700;
+}
+
+
+/* left border to indicate collapsible action */
+.mado-header h1:before,
+.mado-header h2:before,
+.mado-header h3:before,
+.mado-header h4:before,
+.mado-header h5:before,
+.mado-header h6:before{
+	content:"";
+	position:absolute;
+	left:0px;
+	top:0;
+	height:100%;
+	border-radius:var(--button-radius);
+	border-left:3px solid var(--color-accent-alt)!important;
+}
+
+.mado-header h1:before{
+	border-radius:4px 0 0 4px;
+	border-left:3px solid var(--color-accent)!important;
+}
+.mado-header h2:before{
+	left:0px;
+}
+.mado-header h3:before{
+	left:2px;
+}
+.mado-header h4:before{
+	left:4px;
+}
+.mado-header h5:before{
+	left:6px;
+}
+.mado-header h6:before{
+	left:8px;
+}
+
+
+.mado-header .heading-collapse-indicator{
+	margin-left:0;
+	width:100%;
+	height:100%;
+	padding:9px 33px;
+	top:0;
+	left:0;
+	position:absolute;
+}
+.mado-header h1 .heading-collapse-indicator{
+	padding:13px 33px;
+	text-align:right;
+}
+
+.mado-header h1:hover,
+.mado-header h2:hover,
+.mado-header h3:hover,
+.mado-header h4:hover,
+.mado-header h5:hover,
+.mado-header h6:hover{
+	background:var(--background-fifth);
+}
+
+.mado-header .markdown-preview-section>div>p{
+	padding-top:17px!important;
+	padding-bottom:17px!important;
+}
+.mado-header .markdown-preview-section>div>ul,
+.mado-header .markdown-preview-section>div>ol{
+	padding-top:23px!important;
+	padding-bottom:23px!important;
+}
+.mado-header .markdown-preview-section>div>hr{
+	padding-top:7px!important;
+	padding-bottom:7px!important;
+	background:var(--background-primary-alt);
+	border:none;
+	display:none;
+}
+.mado-header .markdown-preview-section>div>pre{
+	background:var(--background-primary-alt);
+}
+.mado-header .markdown-preview-section>div>blockquote{
+	padding-top:33px!important;
+	padding-bottom:33px!important;
+	background:var(--background-secondary);
+	/* border-left:7px solid var(--background-modifier-border); */
+}
+.mado-header .markdown-preview-section>div>blockquote>ul,
+.mado-header .markdown-preview-section>div>blockquote>ol{
+	padding:0!important;
+}

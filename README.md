@@ -8,40 +8,73 @@ Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
 This theme aims for a simplified app feel, with bigger buttons to click on the sidebar. Works well for people that prefer easy workflow rather than using everything Obsidian provided.
 That being said, feel free to dock anything wherever you want.
 
-## Installation
+# Installation
 
 - Download the file "Mado 11 theme.css" and place it inside your Obsidian Snippet Folder.
 - Enable it through Settings → Appearance → CSS Snippets.
 
-## Guideline
+# Guideline
 
-##### Top Menu
+#### Top Menu
 
 - Back & Forward buttons - hidden, hover to show. Position at the top-left corner.
 - Min/Max/Close buttons - hidden, hover to show. Position at the top-right corner.
 - App Title and Vault Title - hidden.
 
-##### Left Sidebar
+#### Left Sidebar
 
 - New Note/New Folder/Rearrange buttons - hidden. Recommend to make the buttons first before installing.
 - Ribbon-Dock buttons (Settings, Change Vault, etc.) - hidden. Same solution as above.
 - Style is set to be buttons-only. Icons are made possible with [Icon Folder Plugin](https://github.com/FlorianWoelki/obsidian-icon-folder)
 - To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons).
 
-##### Sidebar
+#### Sidebar
 
 - Dock-Collapse buttons - hidden, hover to show. Position is around the top-left/right corner.
 - Tab Menu on the dock - hidden, hover to show. Position is around the top-edge of the dock inner border.
 
-##### Other
+#### Other
 
-- Recommended Font: Noto Sans JP
+- Recommended Font: Segoe UI, Noto Sans JP
 - Main Pane has animation activated at each update/enter. Search for "slide-up" in the CSS file if you want to disable it.
 - Resize Handle - hidden, hover to show.
 - Status Bar - hidden.
-- Dark Mode - Not fully configured as I'm not too familiar with it, but still usable. Feel free to contribute!
 
-## Sidebar Buttons 
+### Special class: mado-header
+Turn your headers into buttons, and align all contents to their width and style!
+![](header-sample-light.jpg)
+![](header-sample-dark.jpg)
+
+###### Usage
+Just add "mado-header" to the cssclass in the frontmatter of that note and you're done.
+Make sure you have the option "Fold Header" enabled in your Settings→Editor section.
+~~~
+---
+cssclass: mado-header
+---
+~~~
+
+Header H1 will serve as the main button, and the rest will be kept inside of that button.
+Copy the following and test it out.
+~~~
+# Header H1 Title
+Contents can be anything.
+
+> Be it Quote
+
+```
+Or Code
+```
+
+- Or List
+
+---
+
+- [ ] Or Checkbox (with a hidden separator `---` above to separate checkbox from list
+~~~
+   
+
+# Sidebar Buttons 
 
 1. Install [Buttons Plugin](https://github.com/shabegom/buttons).
 1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should look like below. You may use an SVG link as Icon in the "name" section
