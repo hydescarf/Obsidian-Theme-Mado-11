@@ -6,6 +6,7 @@
 Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
 
 This theme aims for a simplified app feel, with bigger buttons to click on the sidebar. Works well for people that prefer easy workflow rather than using everything Obsidian provided.
+
 That being said, feel free to dock anything wherever you want.
 
 # Installation
@@ -40,13 +41,14 @@ That being said, feel free to dock anything wherever you want.
 - Resize Handle - hidden, hover to show.
 - Status Bar - hidden.
 
-### Special class: mado-header
+## Special class: mado-header
 Turn your headers into buttons, and align all contents to their width and style!
 ![](header-sample-light.jpg)
 ![](header-sample-dark.jpg)
 
-###### Usage
+#### Usage
 Just add "mado-header" to the cssclass in the frontmatter of that note and you're done.
+
 Make sure you have the option "Fold Header" enabled in your Settings→Editor section.
 ~~~
 ---
@@ -55,7 +57,8 @@ cssclass: mado-header
 ~~~
 
 Header H1 will serve as the main button, and the rest will be kept inside of that button.
-Copy the following and test it out.
+
+Copy the following and test it out!
 ~~~
 # Header H1 Title
 Contents can be anything.
