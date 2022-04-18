@@ -28,8 +28,6 @@
 	--button-radius:4px;
 	--window-radius:8px;
 	--readable-line-length:45rem;
-	
-	--scrollbar-bg: transparent;
 }
 
 
@@ -42,6 +40,7 @@
 	--color-light-gray:	var(--mado-gray-3);
 	--color-medium-gray:var(--mado-gray-4);
 	
+	--background-code-for-mado:	var(--background-primary-alt);
 	--modal-group-border:	var(--mado-gray-6);
 	--button-selected:		var(--mado-white-6);
 	--button-hover:			var(--mado-white-6);
@@ -78,6 +77,8 @@
 	--background-modifier-border:	var(--mado-gray-5);
 	--interactive-accent:			var(--mado-blue-1);
 	--indentation-guide:			var(--mado-gray-5);	
+	
+	--scrollbar-bg: transparent;
 }
 
 .theme-dark {
@@ -112,6 +113,7 @@
 	--color-light-gray:	var(--mado-gray-3);
 	--color-medium-gray:var(--mado-gray-4);
 	
+	--background-code-for-mado:	var(--mado-white-5);
 	--modal-group-border:	var(--mado-gray-6);
 	--button-selected:		var(--mado-white-6);
 	--button-hover:			var(--mado-white-6);
@@ -129,7 +131,7 @@
 	--background-secondary:		var(--mado-white-2);
 	--background-secondary-alt:	var(--mado-gray-5);
 	--background-tertiary:		var(--mado-white-3);
-	--background-primary-alt:	var(--mado-white-5);
+	--background-primary-alt:	var(--mado-white-6);
 	
 	--background-accent:	var(--mado-blue-1);	
 	--background-fourth:	var(--mado-white-3);
@@ -150,6 +152,8 @@
 	--background-modifier-border:	var(--mado-gray-5);
 	--interactive-accent:			var(--mado-blue-1);
 	--indentation-guide:			var(--mado-gray-3);
+	
+	--scrollbar-bg: transparent;
 }
 
 
@@ -1309,14 +1313,10 @@ button.mod-cta{
 	padding-bottom:23px!important;
 }
 .mado-header .markdown-preview-section>div>hr{
-	padding-top:7px!important;
-	padding-bottom:7px!important;
-	background:var(--background-primary-alt);
-	border:none;
 	display:none;
 }
 .mado-header .markdown-preview-section>div>pre{
-	background:var(--background-primary-alt);
+	background:var(--background-code-for-mado);
 }
 .mado-header .markdown-preview-section>div>blockquote{
 	padding-top:33px!important;
@@ -1327,4 +1327,7 @@ button.mod-cta{
 .mado-header .markdown-preview-section>div>blockquote>ul,
 .mado-header .markdown-preview-section>div>blockquote>ol{
 	padding:0!important;
+}
+.mado-header .markdown-preview-section>div>table{
+	width:calc(100% + 60px);
 }

@@ -1,7 +1,7 @@
 # Obsidian Theme - Mado 11
  
-![](cover.jpg)
-![](cover2.jpg)
+![](cover.png)
+![](cover2.png)
 
 Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
 
@@ -9,17 +9,17 @@ This theme aims for a simplified app feel, with bigger buttons to click on the s
 
 That being said, feel free to dock anything wherever you want.
 
-# Installation
+## Installation
 
 - Download the file "Mado 11 theme.css" and place it inside your Obsidian Snippet Folder.
 - Enable it through Settings → Appearance → CSS Snippets.
 
-# Guideline
+## Guideline
 
 #### Top Menu
 
-- Back & Forward buttons - hidden, hover to show. Position at the top-left corner.
-- Min/Max/Close buttons - hidden, hover to show. Position at the top-right corner.
+- Back & Forward buttons - hidden, hover to show. Position is at the top-left corner.
+- Min/Max/Close buttons - hidden, hover to show. Position is at the top-right corner.
 - App Title and Vault Title - hidden.
 
 #### Left Sidebar
@@ -43,8 +43,8 @@ That being said, feel free to dock anything wherever you want.
 
 ## Special class: mado-header
 Turn your headers into buttons, and align all contents to their width and style!
-![](header-sample-light.jpg)
-![](header-sample-dark.jpg)
+![](header-sample-light.png)
+![](header-sample-dark.png)
 
 #### Usage
 Just add "mado-header" to the cssclass in the frontmatter of that note and you're done.
@@ -77,7 +77,7 @@ Or Code
 ~~~
    
 
-# Sidebar Buttons 
+## Sidebar Buttons 
 
 1. Install [Buttons Plugin](https://github.com/shabegom/buttons).
 1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should look like below. You may use an SVG link as Icon in the "name" section
