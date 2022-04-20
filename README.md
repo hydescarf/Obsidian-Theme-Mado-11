@@ -11,7 +11,7 @@ That being said, feel free to dock anything wherever you want.
 
 ## Installation
 
-- Download the file "Mado 11 theme.css" and place it inside your Obsidian Snippet Folder.
+- Download the file "obsidian.css" and place it inside your Obsidian Snippet Folder. (You may rename the file to your liking)
 - Enable it through Settings → Appearance → CSS Snippets.
 
 ## Guideline
@@ -73,7 +73,7 @@ Or Code
 
 ---
 
-- [ ] Or Checkbox (with a hidden separator `---` above to separate checkbox from list
+- [ ] Or Checkbox (with a hidden separator `---` above to separate checkbox from list)
 ~~~
    
 

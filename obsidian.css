@@ -40,7 +40,6 @@
 	--color-light-gray:	var(--mado-gray-3);
 	--color-medium-gray:var(--mado-gray-4);
 	
-	--background-code-for-mado:	var(--background-primary-alt);
 	--modal-group-border:	var(--mado-gray-6);
 	--button-selected:		var(--mado-white-6);
 	--button-hover:			var(--mado-white-6);
@@ -62,6 +61,7 @@
 	--background-fourth:	var(--mado-white-4);
 	--background-fifth:		var(--mado-white-5);
 	--background-sixth:		var(--mado-white-4);
+	--background-code-for-mado:	var(--background-primary-alt);
 	
 	--text-code:		var(--mado-red-3);
 	--text-normal:		var(--mado-black-1);
@@ -113,7 +113,6 @@
 	--color-light-gray:	var(--mado-gray-3);
 	--color-medium-gray:var(--mado-gray-4);
 	
-	--background-code-for-mado:	var(--mado-white-5);
 	--modal-group-border:	var(--mado-gray-6);
 	--button-selected:		var(--mado-white-6);
 	--button-hover:			var(--mado-white-6);
@@ -137,6 +136,7 @@
 	--background-fourth:	var(--mado-white-3);
 	--background-fifth:		var(--mado-white-5);
 	--background-sixth:		var(--mado-white-5);
+	--background-code-for-mado:	var(--mado-white-5);
 	
 	--text-code:		var(--mado-red-1);
 	--text-normal:		var(--mado-black-1);
