@@ -118,7 +118,7 @@ v0.2.2
 - Applied minor styling to Callout feature
 
 v0.2.1
-- Quick Fixes for background colours for codeblock
+- Quick Fixes for background colours for codeblock and scrollbar
 
 v0.2.0
 - Adjusted various styling, especially for those in dark mode
