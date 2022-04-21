@@ -110,3 +110,23 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
    }
    ```
 5. Paste them below `const activeView = app.workspace.getActiveViewOfType(obsidian.MarkdownView);` which is just a few lines above them (or one line below the initial search)  
+
+
+## Update  
+
+v0.2.2
+- Applied minor styling to Callout feature
+
+v0.2.1
+- Quick Fixes for background colours for codeblock
+
+v0.2.0
+- Adjusted various styling, especially for those in dark mode
+  - ==Highlight== is now underlined in dark mode
+  - **Bold** text is now coloured
+  - `Code Colour` is now more readable with a brighter red version
+  - Other small changes
+- Implemented special CSS class ["mado-header"](#Special-class-mado-header)
+
+v0.1.0
+- Release!

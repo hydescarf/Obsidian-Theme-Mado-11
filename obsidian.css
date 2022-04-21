@@ -308,6 +308,10 @@ hr{
 	color:var(--text-code);	
 }
 
+.callout{
+	border-radius:var(--button-radius);
+}
+
 /* Whenever pane is opened/entered, or even updated, make an animation suggesting it, can be annoying */
 .workspace-split.mod-vertical.mod-root .markdown-preview-sizer.markdown-preview-section div{
 	animation:0.3s slide-up forwards;
@@ -1323,6 +1327,16 @@ button.mod-cta{
 	padding-bottom:33px!important;
 	background:var(--background-secondary);
 	/* border-left:7px solid var(--background-modifier-border); */
+}
+.mado-header .markdown-preview-section>div>.callout{
+	padding-top:13px!important;
+	padding-bottom:13px!important;
+	background:var(--background-secondary);
+}
+.mado-header .markdown-preview-section>div>.callout .callout-title{
+	/* margin:-13px -33px -13px -63px; */
+	margin:-7px -27px -7px -57px;
+	border-radius:var(--button-radius);
 }
 .mado-header .markdown-preview-section>div>blockquote>ul,
 .mado-header .markdown-preview-section>div>blockquote>ol{
