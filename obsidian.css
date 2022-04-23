@@ -569,7 +569,9 @@ ul > li.task-list-item.is-checked *,
 }
 
 /* Show expand button when hovered */
-.workspace-ribbon-collapse-btn{
+.workspace-ribbon-collapse-btn,
+.side-dock-actions,
+.side-dock-settings{
 	position:fixed;
 	visibility:visible;
 	top:0;
@@ -580,15 +582,45 @@ ul > li.task-list-item.is-checked *,
 	transition:0.1s background, 0.1s opacity;
 }
 
+/* Fix left ribbon position for easier hovering */
+.workspace-ribbon.side-dock-ribbon.mod-left .workspace-ribbon-collapse-btn{
+	left:-1px; 
+}
+
+.side-dock-actions{
+	top:initial;
+	bottom:114px;
+	left:-23px;
+	padding:0;
+}
+.side-dock-settings{
+	top:initial;
+	bottom:0;
+	left:-23px;
+	margin-bottom:0;
+	padding:0;
+}
+.side-dock-ribbon-action{
+	color:var(--text-muted);
+	padding:7px;
+}
+
 .mod-right.workspace-ribbon,
 .mod-right .workspace-ribbon-collapse-btn{
 	right:0;
 }
-.workspace-ribbon-collapse-btn:hover{
+.workspace-ribbon-collapse-btn:hover,
+.side-dock-actions:hover,
+.side-dock-settings:hover{
 	visibility:visible;
 	opacity:1;
 	background:var(--button-hover);
+	border:1px solid var(--color-gray);
 	color:var(--color-dark-gray);
+}
+.side-dock-actions:hover,
+.side-dock-settings:hover{
+	left:0;
 }
 
 
@@ -719,9 +751,40 @@ ul > li.task-list-item.is-checked *,
 */
 /* markdown-preview-sizer is note placed onto the dock */
 
-/* Left dock navigation hidden (new note, new folder, reorder) */
+/* Left dock navigation (new note, new folder, reorder) */
 .mod-left-split .nav-header{
-	display:none;
+	position:absolute;
+	top:13px;
+	right:-23px;
+	flex-direction:column;
+	z-index:1;
+	padding:0;
+	opacity:0;
+}
+.mod-left-split .nav-header:hover{
+	right:0;
+	opacity:1;
+}
+
+.mod-left-split .nav-header .nav-buttons-container{
+	flex-direction:column;
+}
+.mod-left-split .nav-header .nav-action-button{
+	padding:7px 7px 3px;
+	margin:0;
+	color:var(--color-dark-gray);
+	border-radius:var(--button-radius);
+	transition:0.1s background, 0.1s opacity;
+	background:var(--background-secondary);
+	top:0;
+	border:1px solid var(--color-gray);
+}
+.mod-left-split .nav-header .nav-action-button:hover{
+	background:var(--button-hover);
+	color:var(--color-dark-gray);
+}
+.mod-left-split .nav-header .nav-action-button:active{
+	opacity:0.75;
 }
 
 /* Left dock Vault title hidden */

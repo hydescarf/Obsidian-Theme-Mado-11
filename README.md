@@ -1,18 +1,30 @@
 # Obsidian Theme - Mado 11
  
-![](cover.png)
-![](cover2.png)
-
 Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
 
 This theme aims for a simplified app feel, with bigger buttons to click on the sidebar. Works well for people that prefer easy workflow rather than using everything Obsidian provided.
 
 That being said, feel free to dock anything wherever you want.
 
+![](cover.png)
+![](cover2.png)
+
+## Index
+
+- [Installation](#installation)
+- [Guideline](#guideline)
+- [Special CSS Class: mado-header](#special-css-class-mado-header)
+- [Sidebar Buttons Installation](#sidebar-buttons-installation)
+- [Changelog](#changelog)
+
 ## Installation
 
 - Download the file "obsidian.css" and place it inside your Obsidian Snippet Folder. (You may rename the file to your liking)
 - Enable it through Settings → Appearance → CSS Snippets.
+
+Or
+
+- Download the theme through Obsidian's theme store!
 
 ## Guideline
 
@@ -24,10 +36,10 @@ That being said, feel free to dock anything wherever you want.
 
 #### Left Sidebar
 
-- New Note/New Folder/Rearrange buttons - hidden. Recommend to make the buttons first before installing.
-- Ribbon-Dock buttons (Settings, Change Vault, etc.) - hidden. Same solution as above.
+- New Note/New Folder/Rearrange buttons - hidden, hover to show. Position is at the top-left corner of the left-sidebar.
+- Ribbon buttons (Settings, Change Vault, etc.) - hidden, hover to show. Position is at the bottom-right corner.
 - Style is set to be buttons-only. Icons are made possible with [Icon Folder Plugin](https://github.com/FlorianWoelki/obsidian-icon-folder)
-- To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons).
+- To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons-installation).
 
 #### Sidebar
 
@@ -41,7 +53,7 @@ That being said, feel free to dock anything wherever you want.
 - Resize Handle - hidden, hover to show.
 - Status Bar - hidden.
 
-## Special class: mado-header
+## Special CSS Class: mado-header
 Turn your headers into buttons, and align all contents to their width and style!
 ![](header-sample-light.png)
 ![](header-sample-dark.png)
@@ -77,7 +89,7 @@ Or Code
 ~~~
    
 
-## Sidebar Buttons 
+## Sidebar Buttons Installation
 
 1. Install [Buttons Plugin](https://github.com/shabegom/buttons).
 1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should look like below. You may use an SVG link as Icon in the "name" section
@@ -112,7 +124,10 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 5. Paste them below `const activeView = app.workspace.getActiveViewOfType(obsidian.MarkdownView);` which is just a few lines above them (or one line below the initial search)  
 
 
-## Update  
+## Changelog  
+
+v0.2.3
+- Applied hover-to-show for hidden ribbon docks (settings, change vault, etc.) and explorer buttons (new file, reorder, etc.)
 
 v0.2.2
 - Applied minor styling to Callout feature
