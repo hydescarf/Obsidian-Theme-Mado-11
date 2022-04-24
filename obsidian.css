@@ -169,8 +169,6 @@ body{
 .titlebar{
 	background:var(--background-secondary);
 	position:absolute;
-	/* shrink height to avoid unclickable buttons that fall behind it */
-	/* height:0!important; */
 }
 
 .titlebar-text{
@@ -179,8 +177,6 @@ body{
 }
 
 .titlebar-button-container.mod-left{
-	/* hide back & forth button */
-	/* display:none; */
 	left:0!important;
 }
 
@@ -263,26 +259,26 @@ body{
 strong,
 .cm-strong{
 	font-weight:800;
-	color:var(--text-bold)!important;
+	color:var(--text-bold);
 }
 
 mark,
 .cm-highlight{
-	background:var(--text-highlight-bg)!important;
+	background:var(--text-highlight-bg);
 }
 .theme-dark mark,
-.theme-dark .cm-highlight{
-	background:none!important;
-	border-bottom:2px solid var(--text-highlight-bg)!important;
+.theme-dark .cm-line .cm-highlight{
+	background:none;
+	border-bottom:2px solid var(--text-highlight-bg);
 }
 
 em,
 .cm-em{
-	color:var(--text-em)!important;
+	color:var(--text-em);
 }
 
 a{
-	text-decoration:none!important;
+	text-decoration:none;
 }
 
 hr{
@@ -291,16 +287,18 @@ hr{
 	margin:4rem 0;
 }
 
-.markdown-preview-view,
-.markdown-source-view{
+.markdown-preview-view{
 	padding-inline:63px;
+}
+.markdown-source-view .cm-content{
+	padding-inline:13px;
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer,
-.markdown-source-view.is-readable-line-width .cm-contentContainer,
-.markdown-source-view.is-line-wrap.is-readable-line-width .cm-content,
-.markdown-source-view.is-line-wrap.is-readable-line-width .cm-line{
-	max-width:1000px!important;
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-editor .cm-contentContainer,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-editor .cm-contentContainer .cm-content,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-editor .cm-contentContainer .cm-content .cm-line{
+	max-width:1000px;
 }
 
 .markdown-rendered code{
@@ -330,35 +328,32 @@ hr{
 	Markdown Checkbox
 ---------------------------
 */
-input[type=checkbox] {
-  -webkit-appearance: none;
-  appearance: none;
-  padding: 0;
-  cursor: pointer;
-  border: 1px solid var(--color-light-gray);
-  border-radius: 3px;
+input[type=checkbox]{
+	appearance:none;
+	cursor:pointer;
+	border:1px solid var(--color-light-gray);
+	border-radius:var(--button-radius);
 }
 
-input[type=checkbox]:checked {
-  background-color: var(--color-medium-gray) !important;
-  border: 1px solid var(--color-light-gray);
-  background-position: center;
-  background-size: 70%;
-  background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' focusable='false' width='1em' height='1em' style='-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);' preserveAspectRatio='xMidYMid meet' viewBox='0 0 20 20'%3E%3Cpath d='M0 11l2-2l5 5L18 3l2 2L7 18z' fill='%23fff'/%3E%3C/svg%3E");
+input[type=checkbox]:checked{
+	background-color:var(--color-medium-gray);
+	background-position:center;
+	background-size:70%;
+	background-repeat:no-repeat;
+	background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' focusable='false' width='1em' height='1em' style='-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);' preserveAspectRatio='xMidYMid meet' viewBox='0 0 20 20'%3E%3Cpath d='M0 11l2-2l5 5L18 3l2 2L7 18z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
 .markdown-source-view .task-list-item-checkbox,
-.markdown-preview-view .task-list-item-checkbox {
-  width: 20px;
-  height: 20px;
-  margin-top:-3px;
+.markdown-preview-view .task-list-item-checkbox{
+	width:20px;
+	height:20px;
+	margin-top:-3px;
 }
 
-.markdown-preview-view .task-list-item-checkbox {
-  top: 8px;
-  margin-left: -1px;
-  margin-right: 10px;
+.markdown-preview-view .task-list-item-checkbox{
+	top:8px;
+	margin-left:-1px;
+	margin-right:10px;
 }
 
 /* Checkbox Bullet Point Alignment */
@@ -384,10 +379,12 @@ ul,ol{
 	/* Build spaces at the start of each line (preview) */
 	padding-left:40px;
 }
+ /* Only works if indentation-guide is enabled in the settings */
+ /* Not sure how to style it without that for source-view */
 .cm-indent{
 	/* Build spaces at the start of each line (source) */
-	padding-left:12px!important;
-	padding-right:12px!important;
+	padding-left:12px;
+	padding-right:12px;
 }
 
 /* Build spaces at the end of each listing to distinguish from each other (source) */
@@ -403,8 +400,8 @@ ul,ol{
 li{
 	padding-block:3px;
 }
-.HyperMD-list-line{
-	padding-block:4px!important;
+.HyperMD-list-line.cm-line{
+	padding-block:4px;
 }
 
 ul>li::marker{
@@ -414,8 +411,9 @@ ul>li::marker{
 }
 
 /* Adjust line position to fit below bullet point (preview) */
-ul ul::before, ol ol::before { 
-	left: -13px!important; 
+.markdown-rendered.show-indentation-guide li > ul::before,
+.markdown-rendered.show-indentation-guide li > ol::before{ 
+	left:-12px;
 }
 
 /* Adjust line position to fit below bullet point (source) */
@@ -446,7 +444,7 @@ li .external-link{
 /* Adds padding spaces & color to the border */
 .markdown-preview-view td,
 .markdown-preview-view th {
-	border: 1px solid var(--color-light-gray)!important;
+	border: 1px solid var(--color-light-gray);
 	padding:4px 17px;
 }
 
@@ -491,10 +489,10 @@ ul > li.task-list-item.is-checked *,
 */
 /* adjust embed padding, visual border */
 .markdown-preview-view .markdown-embed{
-	border: 2px solid var(--background-modifier-border)!important;
+	border: 2px solid var(--background-modifier-border);
     border-radius: var(--window-radius);
-    padding: 13px 23px!important;
-    margin: 0!important;
+    padding: 13px 23px;
+    margin: 0;
 	overflow:auto;
 }
 
@@ -541,11 +539,11 @@ ul > li.task-list-item.is-checked *,
 	padding-top:13px;
 }
 
-.HyperMD-quote{
+.HyperMD-quote.cm-line{
 	padding:13px 13px!important;
 	text-indent:0!important;
 }
-.HyperMD-quote+.HyperMD-quote{
+.HyperMD-quote.cm-line+.HyperMD-quote.cm-line{
 	/* remove siblings padding-top */
 	padding-top:0!important;
 }
@@ -626,10 +624,9 @@ ul > li.task-list-item.is-checked *,
 
 /* Hide dock's tab menu, and show them when hovered  */
 .workspace-tab-header-container{
-	position:absolute!important;
+	position:absolute;
 	top:0;
 	opacity:0;
-	position:relative;
 	z-index:1;
 	height:1px;
 	transition:opacity 0.2s;
@@ -644,8 +641,16 @@ ul > li.task-list-item.is-checked *,
 }
 
 /* remove border-radius on icons */
-.workspace-tab-header-inner{
-	border-radius:0!important;
+.workspace-tab-header.is-before-active .workspace-tab-header-inner,
+.workspace-tab-header.is-after-active .workspace-tab-header-inner,
+.workspace-tab-container-after.is-after-active .workspace-tab-header-inner{
+	border-radius:0;
+}
+
+.workspace-split.mod-horizontal.mod-left-split .workspace-ribbon.side-dock-ribbon,
+.workspace-split.mod-horizontal.mod-left-split .workspace-tab-header-container,
+.workspace-split.mod-horizontal.mod-left-split .workspace-tab-header-inner{
+	background:var(--background-secondary);
 }
 
 /*
@@ -653,13 +658,15 @@ ul > li.task-list-item.is-checked *,
 	Note Title
 ---------------------------
 */
-.view-header{
+.workspace-split.mod-root > .workspace-leaf:first-of-type:last-of-type .view-header,
+.workspace-split.mod-horizontal > .workspace-leaf .view-header,
+.workspace-split.mod-vertical > .workspace-leaf .view-header{
 	height:auto;
 	display:flex;
 	align-items:center;
 	padding:13px 17px;
-	border:none!important;
-	background:none!important;
+	border:none;
+	background:none;
 }
 
 .view-header-title{
@@ -676,9 +683,11 @@ ul > li.task-list-item.is-checked *,
 	border:var(--border);
 }
 
-/* Hide Title gradient background */
-.view-header-title-container:after{
-	background:none!important;
+/* Adjust Title gradient background */
+.workspace-split.mod-root > .workspace-leaf:first-of-type:last-of-type.mod-active .view-header-title-container:after,
+.workspace-split.mod-horizontal > .workspace-leaf .view-header-title-container:after,
+.workspace-split.mod-vertical > .workspace-leaf .view-header-title-container:after{
+	background:linear-gradient(to right, transparent, var(--background-primary));
 }
 
 .view-action,.view-header-icon{
@@ -702,7 +711,7 @@ ul > li.task-list-item.is-checked *,
 
 /* Adjust Title Background color */
 .workspace-split.mod-vertical.mod-root .workspace-leaf-content{
-	background:var(--background-primary)!important;
+	background:var(--background-primary);
 }
 
 /*
@@ -714,18 +723,23 @@ ul > li.task-list-item.is-checked *,
 /* Also adjusted thickness for easier finding/gripping */
 .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle{
 	background:none;
-	height:7px!important;
+	height:7px;
 }
 
 .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle,
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle{
 	background:none;
-	width:7px!important;
+	width:7px;
 }
 
-.workspace-leaf-resize-handle:hover{
-	background:var(--color-accent)!important;
+.workspace-split .workspace-leaf-resize-handle:hover{
+	background:var(--color-accent);
+}
+
+/* Show some space when there are multiple notes in a single screen */
+.workspace-split.mod-horizontal > .workspace-leaf{
+	padding-bottom:4px;
 }
 
 
@@ -738,9 +752,11 @@ ul > li.task-list-item.is-checked *,
 	border-top-left-radius: 0px;
 }
 
-.workspace-split.mod-root > .workspace-leaf:first-of-type .workspace-leaf-content{
+.workspace-split.mod-vertical.mod-root .workspace-leaf:first-of-type{
 	border-top-right-radius: 0px;
-	/* border-top-left-radius: 43px; */
+	border-top-left-radius: 23px;
+}
+.workspace-split.mod-vertical.mod-root .workspace-leaf{
 	border-left:var(--border);
 }
 
@@ -817,11 +833,13 @@ ul > li.task-list-item.is-checked *,
 	gap:4px;
 }
 
-.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer,
+.mod-left-split .workspace-tabs .view-content .markdown-preview-sizer{
+	padding:0!important;
+}
 .mod-left-split .workspace-tabs .view-content .markdown-preview-view.is-readable-line-width,
 .mod-left-split .workspace-tabs .view-content .markdown-preview-sizer p{
-	padding:0!important;
-	margin:0!important;
+	padding:0;
+	margin:0;
 }
 
 /* Remove br (new line) */
@@ -831,8 +849,8 @@ ul > li.task-list-item.is-checked *,
 
 
 /* Remove pusher? to decrease addition height */
-.mod-left-split .workspace-tabs .view-content .markdown-preview-pusher{
-	display:none!important;
+.mod-left-split .workspace-tabs .view-content div.markdown-preview-pusher{
+	display:none;
 }
 
 /* Define height to achieve margin-top:auto which automatically push the contents to the bottom */
@@ -840,7 +858,7 @@ ul > li.task-list-item.is-checked *,
 	height:100%;
 }
 .mod-left-split .workspace-tabs .view-content p:first-child{
-	margin-top:auto!important;
+	margin-top:auto;
 }
 /* Also have to remove min-height to achieve function above */
 .mod-left-split .workspace-tabs .view-content .markdown-preview-sizer.markdown-preview-section{
@@ -941,7 +959,7 @@ ul > li.task-list-item.is-checked *,
 .nav-file-title:hover,
 .side-dock-ribbon-action:hover,
 .mod-left-split .workspace-tabs .view-content .button-default:hover{
-	background:var(--button-hover)!important;
+	background:var(--button-hover);
 }
 
 .nav-file-title.is-active:hover{
@@ -975,28 +993,26 @@ ul > li.task-list-item.is-checked *,
 	padding:11px 43px;
 }
 
-/* Remove additional padding at the bottom */
+/* Remove additional padding at the bottom for docked notes */
 .workspace-split.mod-horizontal.mod-right-split .markdown-preview-view .markdown-preview-sizer.markdown-preview-section{
 	padding:0!important;
 }
 
 /* Remove background to match main pane's color */
 .workspace-split.mod-horizontal.mod-right-split{
-	background:var(--background-primary)!important;
+	background:var(--background-primary);
 }
 
 /* Adjust embed size to fit into smaller dock */
 .workspace-split.mod-horizontal.mod-right-split .markdown-preview-view .internal-embed .markdown-embed .markdown-preview-view{
-	padding:0!important;
+	padding:0;
 	min-height:0;
 }
 
-.workspace-split.mod-horizontal.mod-right-split .workspace-leaf-content,
-.workspace-split.mod-horizontal.mod-right-split .workspace-tabs,
 .workspace-split.mod-horizontal.mod-right-split .workspace-ribbon.side-dock-ribbon,
 .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-container,
 .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-inner{
-	background:var(--background-primary)!important;
+	background:var(--background-primary);
 }
 
 .workspace-split.mod-horizontal.mod-right-split{
@@ -1005,11 +1021,11 @@ ul > li.task-list-item.is-checked *,
 }
 
 .workspace-split.mod-horizontal.mod-right-split .workspace-tabs .workspace-leaf-content{
-	background:var(--background-sixth)!important;
+	background:var(--background-sixth);
 }
 
 .workspace-split.mod-horizontal.mod-right-split .workspace-tabs{
-	background:var(--background-sixth)!important;
+	background:var(--background-sixth);
 	border-radius:var(--window-radius);
 	border:var(--border);
 	box-shadow:var(--window-shadow);
@@ -1024,21 +1040,34 @@ ul > li.task-list-item.is-checked *,
 
 /* Adjust remaining background colours to match the theme */
 /* Includes Docks' tab-menu buttons */
-.workspace-leaf-content,
 .workspace-tabs,
 .workspace-ribbon.side-dock-ribbon,
 .workspace-tab-header-container,
 .workspace-tab-header-inner{
-	background:var(--background-secondary)!important;
+	background:var(--background-secondary);
 }
 
 /* Remove background from the back of the main pane */
 .workspace-split.mod-root{
-	background:none!important;
+	background:none;
 }
 
 
+/* Make search visual more apparent */
+.document-search-container{
+	border-top:var(--border);
+}
+.document-search-close-button{
+	color:var(--text-muted);
+}
 
+input[type='text'],
+input[type='search'],
+input[type='email'],
+input[type='password'],
+input[type='number']{
+	border:var(--border);
+}
 
 /*
 --------------------------- --------------------------- 
@@ -1062,15 +1091,15 @@ ul > li.task-list-item.is-checked *,
 }
 
  /* Adjust width and height */
-.mod-settings{
-	max-width:67vw!important;
-	height:83vh!important;
+.modal.mod-settings{
+	max-width:67vw;
+	height:83vh;
 }
 
-.vertical-tabs-container,
-.vertical-tab-header,
-.vertical-tab-content-container{
-	height:100%!important;
+.modal.mod-settings .vertical-tabs-container,
+.modal.mod-settings .vertical-tab-header,
+.modal.mod-settings .vertical-tab-content-container{
+	height:100%;
 }
 
 
@@ -1082,7 +1111,7 @@ ul > li.task-list-item.is-checked *,
  /* close button styling */
 .modal-close-button{
 	display:flex;
-	padding:13px 11px 14px;
+	padding:7px 11px 14px;
 	color:var(--color-dark-gray);
 	border-radius:var(--button-radius);
 	transition:0.1s background,0.1s opacity;
@@ -1104,7 +1133,9 @@ ul > li.task-list-item.is-checked *,
 
 /* Make text readable in red background */
 button.mod-warning,
-button.mod-cta{
+button.mod-cta,
+.setting-hotkey.mod-active,
+.setting-hotkey.has-conflict{
 	color:var(--text-on-accent);
 }
 
@@ -1130,11 +1161,6 @@ button.mod-cta{
 	color:var(--color-dark-gray);
 }
 
-/* Make text readable in red background */
-.setting-hotkey.mod-active,
-.setting-hotkey.has-conflict{
-	color:var(--text-on-accent)!important;
-}
 
 
 /*
@@ -1144,9 +1170,9 @@ button.mod-cta{
 */
 
 
-.vertical-tab-header{
+.modal.mod-settings .vertical-tab-header{
 	background:var(--background-secondary);
-	padding:0!important;
+	padding:0;
 	display:flex;
 	flex-direction:column;
 	gap:33px;
@@ -1209,7 +1235,7 @@ button.mod-cta{
 }
 
 .vertical-tab-nav-item:hover{
-	background:var(--button-hover)!important;
+	background:var(--button-hover);
 }
 
 .vertical-tab-nav-item.is-active:hover{
@@ -1233,10 +1259,10 @@ button.mod-cta{
 ---------------------------
 */
 
-.vertical-tab-content-container{
+.modal.mod-settings .vertical-tab-content-container{
 	background:var(--background-primary);
 	border-left:var(--border);
-	padding-top:53px!important;
+	padding-top:53px;
 }
 
 .vertical-tab-content{
@@ -1262,34 +1288,12 @@ button.mod-cta{
 	transition:background 0.1s;
 }
 
-.mado-header .markdown-preview-section>div>*:not(h1){
-	/* border-left:3px solid var(--color-accent-alt)!important; */
-}
-.mado-header .markdown-preview-section>div>*:not(h1):before{
-	/* content:""; */
-	/* position:absolute; */
-	/* left:11px; */
-	/* top:0; */
-	/* height:calc(100% - 0px); */
-	/* border-left:3px solid var(--color-accent-alt)!important; */
-}
 
-.mado-header .markdown-preview-section>div.is-collapsed h2,
-.mado-header .markdown-preview-section>div.is-collapsed h3,
-.mado-header .markdown-preview-section>div.is-collapsed h4,
-.mado-header .markdown-preview-section>div.is-collapsed h5,
-.mado-header .markdown-preview-section>div.is-collapsed h6{
-	/* indicate it's collapsed */
-	
-}
-
-
-.mado-header h1{
+.mado-header .markdown-preview-section h1{
 	font-size:1.2rem;
 	font-weight:700;
-	padding:13px 43px!important;
-	/* margin-top:33px!important; */
-	margin-top:17px!important;
+	padding:13px 43px;
+	margin-top:17px;
 }
 .mado-header h2{
 	font-size:1.17rem;
@@ -1323,12 +1327,12 @@ button.mod-cta{
 	top:0;
 	height:100%;
 	border-radius:var(--button-radius);
-	border-left:3px solid var(--color-accent-alt)!important;
+	border-left:3px solid var(--color-accent-alt);
 }
 
 .mado-header h1:before{
 	border-radius:4px 0 0 4px;
-	border-left:3px solid var(--color-accent)!important;
+	border-left:3px solid var(--color-accent);
 }
 .mado-header h2:before{
 	left:0px;
@@ -1371,13 +1375,11 @@ button.mod-cta{
 }
 
 .mado-header .markdown-preview-section>div>p{
-	padding-top:17px!important;
-	padding-bottom:17px!important;
+	padding-block:17px;
 }
 .mado-header .markdown-preview-section>div>ul,
 .mado-header .markdown-preview-section>div>ol{
-	padding-top:23px!important;
-	padding-bottom:23px!important;
+	padding-block:23px;
 }
 .mado-header .markdown-preview-section>div>hr{
 	display:none;
@@ -1386,14 +1388,12 @@ button.mod-cta{
 	background:var(--background-code-for-mado);
 }
 .mado-header .markdown-preview-section>div>blockquote{
-	padding-top:33px!important;
-	padding-bottom:33px!important;
+	padding-block:33px;
 	background:var(--background-secondary);
 	/* border-left:7px solid var(--background-modifier-border); */
 }
 .mado-header .markdown-preview-section>div>.callout{
-	padding-top:13px!important;
-	padding-bottom:13px!important;
+	padding-block:13px;
 	background:var(--background-secondary);
 }
 .mado-header .markdown-preview-section>div>.callout .callout-title{
@@ -1403,7 +1403,7 @@ button.mod-cta{
 }
 .mado-header .markdown-preview-section>div>blockquote>ul,
 .mado-header .markdown-preview-section>div>blockquote>ol{
-	padding:0!important;
+	padding:0;
 }
 .mado-header .markdown-preview-section>div>table{
 	width:calc(100% + 60px);

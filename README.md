@@ -126,6 +126,10 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 
 ## Changelog  
 
+v0.2.4
+- Removed and readjusted most of the `!important` in the code to allow custom CSS Snippets to work easily. Some, however, are remained untouched so as to override inline CSS style.
+- Various minor style changes
+
 v0.2.3
 - Applied hover-to-show for hidden ribbon docks (settings, change vault, etc.) and explorer buttons (new file, reorder, etc.)
 
