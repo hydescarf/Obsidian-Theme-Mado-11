@@ -17,6 +17,8 @@ That being said, feel free to dock anything wherever you want.
 - [Sidebar Buttons Installation](#sidebar-buttons-installation)
 - [Changelog](#changelog)
 
+---
+
 ## Installation
 
 - Download the file "obsidian.css" and place it inside your Obsidian Snippet Folder. (You may rename the file to your liking)
@@ -53,6 +55,8 @@ Or
 - Resize Handle - hidden, hover to show.
 - Status Bar - hidden.
 
+---
+
 ## Special CSS Class: mado-header
 Turn your headers into buttons, and align all contents to their width and style!
 ![](header-sample-light.png)
@@ -87,7 +91,9 @@ Or Code
 
 - [ ] Or Checkbox (with a hidden separator `---` above to separate checkbox from list)
 ~~~
-   
+
+---
+
 
 ## Sidebar Buttons Installation
 
@@ -102,6 +108,12 @@ Or Code
    ~~~
 1. Create another note, and insert an "inline-button" (Ctrl+P, search for "Buttons: Insert Inline Button").
 1. Select the button you need to be placed on the sidebar. It should come out something like "\`button-aafl`".
+1. Insert a frontmatter cssclass of `mado-side-button` on top of the note. (v0.2.5+)
+   ~~~
+   ---
+   cssclass: mado-side-button
+   ---
+   ~~~
 1. Drag the note onto the bottom part of the sidebar.
 
 
@@ -123,8 +135,18 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
    ```
 5. Paste them below `const activeView = app.workspace.getActiveViewOfType(obsidian.MarkdownView);` which is just a few lines above them (or one line below the initial search)  
 
+---
 
 ## Changelog  
+
+v0.2.5
+- Fixed left-sidebar for not properly showing the other plugins' pane.
+- Left-sidebar bottom buttons now requires a frontmatter cssclass of `mado-side-button` to allow other custom notes to function.
+- Fixed spacing issue for "Banner Plugin".
+- Re-remove the background fading gradient on the title block as it blocks the editing path.
+- Adjusted style for blockquote.
+- Table is reverted to non-full width (only expands based on its content length).
+- Table in `mado-header` however has a new styling.
 
 v0.2.4
 - Removed and readjusted most of the `!important` in the code to allow custom CSS Snippets to work easily. Some, however, are remained untouched so as to override inline CSS style.
