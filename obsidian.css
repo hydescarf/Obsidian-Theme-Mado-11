@@ -179,6 +179,9 @@ body{
 .titlebar-button-container.mod-left{
 	left:0!important;
 }
+.mod-macos .titlebar-button-container.mod-left{
+	left:70px!important;
+}
 
 /* Hide buttons but show them when hovered */
 .titlebar-button-container.mod-left,
