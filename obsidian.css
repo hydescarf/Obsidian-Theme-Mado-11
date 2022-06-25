@@ -167,8 +167,13 @@ body{
 ---------------------------
 */
 .titlebar{
-	background:var(--background-secondary);
+	/* background none to let way for translucent mode design */
+	background:none;
 	position:absolute;
+}
+.is-translucent .titlebar{
+	z-index:1;
+	/* Possible reason fof it to not work with opacity: https://stackoverflow.com/questions/23995799/css-hover-not-working-due-to-opacity */
 }
 
 .titlebar-text{
@@ -779,6 +784,9 @@ ul > li.task-list-item.is-checked *,
 .workspace-split.mod-vertical.mod-root .workspace-leaf{
 	border-left:var(--border);
 }
+.workspace-split.mod-root > .workspace-leaf:last-of-type .workspace-leaf-content{
+	border-top-right-radius: 0px;
+}
 
 /*
 --------------------------- 
@@ -1086,9 +1094,18 @@ ul > li.task-list-item.is-checked *,
 	background:var(--background-secondary);
 }
 
-/* Remove background from the back of the main pane */
+/* Backgorund for the back of the pane */
+.workspace-split,
 .workspace-split.mod-root{
-	background:none;
+	background:var(--background-secondary);
+}
+
+/* Readjust translucent element */
+.is-translucent .workspace-split{
+	opacity:var(--opacity-translucency);
+}
+.is-translucent .workspace-tabs{
+	opacity:1;
 }
 
 

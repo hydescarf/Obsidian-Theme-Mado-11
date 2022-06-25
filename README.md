@@ -139,6 +139,10 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 
 ## Changelog  
 
+v0.2.7
+- Fixed close/min/max buttons being unclickable during "Translucent Window" mode.
+- Adjusted the weird opacity design during "Translucent Window" mode.
+
 v0.2.6
 - Fixed close/min/max buttons position for MacOS.
 
