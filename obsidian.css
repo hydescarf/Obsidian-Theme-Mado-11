@@ -684,6 +684,7 @@ ul > li.task-list-item.is-checked *,
 }
 
 /* Remove style for border-on-active */
+.workspace-tabs .workspace-leaf,
 .workspace-tabs .workspace-leaf.mod-active{
 	border:none;
 }
@@ -1026,6 +1027,18 @@ ul > li.task-list-item.is-checked *,
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+
+/* Remove sttles on button-on-active, but not during right-click-menu as that is alright */
+.nav-folder-title, .nav-file{
+	border:none;
+}
+.workspace-leaf.mod-active .nav-folder.has-focus > .nav-folder-title, .workspace-leaf.mod-active .nav-file.has-focus{
+	border-radius:none;
+	border:none;
+	background-color:none;
+}
+
 
 
 /*

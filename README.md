@@ -115,6 +115,7 @@ Or Code
    ---
    ~~~
 1. Drag the note onto the bottom part of the sidebar.
+1. As of App v0.15.6 update, it is recommended to "pin" the above pane so that during new note creations from it, it will create a new note onto the main pane instead of onto the sidebar.
 
 
 
@@ -139,8 +140,11 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 
 ## Changelog  
 
+v0.3.1
+- Additional "style-reverting", remove styles on button when it is on focus
+
 v0.3.0
-- "Revert" stylings that are affected from the App update of v0.15.6.
+- "Revert" styles that are affected from the App update of v0.15.6.
 
 v0.2.7
 - Fixed close/min/max buttons being unclickable during "Translucent Window" mode.
