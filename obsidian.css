@@ -167,6 +167,7 @@ body{
 ---------------------------
 */
 .titlebar{
+	height:0!important; /* Remove the border visual */
 	/* background none to let way for translucent mode design */
 	background:none;
 	position:absolute;
@@ -228,6 +229,11 @@ body{
 	/* readjust height as to fill the gap caused by hiding the titlebar */
 	margin-top:-22px;
 	height:calc(100% + 22px);
+}
+
+/* Remove :before style that made up the weird spacing */
+.titlebar-button:before{
+	content:"";
 }
 
 
@@ -677,6 +683,11 @@ ul > li.task-list-item.is-checked *,
 	background:var(--background-secondary);
 }
 
+/* Remove style for border-on-active */
+.workspace-tabs .workspace-leaf.mod-active{
+	border:none;
+}
+
 /*
 --------------------------- 
 	Note Title
@@ -749,6 +760,7 @@ ul > li.task-list-item.is-checked *,
 .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle{
 	background:none;
 	height:7px;
+	border:none;
 }
 
 .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
@@ -756,6 +768,7 @@ ul > li.task-list-item.is-checked *,
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle{
 	background:none;
 	width:7px;
+	border:none;
 }
 
 .workspace-split .workspace-leaf-resize-handle:hover{
