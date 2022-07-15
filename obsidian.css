@@ -167,8 +167,10 @@ body{
 ---------------------------
 */
 .titlebar{
-	height:0!important; /* Remove the border visual */
+	height:22px!important;
+	padding-top:0!important;
 	/* background none to let way for translucent mode design */
+	border-bottom:none;
 	background:none;
 	position:absolute;
 }
@@ -227,8 +229,8 @@ body{
 
 .app-container{
 	/* readjust height as to fill the gap caused by hiding the titlebar */
-	margin-top:-22px;
-	height:calc(100% + 22px);
+	margin-top:-25px;
+	height:calc(100% + 25px);
 }
 
 /* Remove :before style that made up the weird spacing */

@@ -140,6 +140,9 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 
 ## Changelog  
 
+v0.3.2
+- Readjusted `titlebar` height style as previous version has disabled the dragging feature.
+
 v0.3.1
 - Additional "style-reverting", remove styles on button when it is on focus
 
