@@ -6,6 +6,8 @@ This theme aims for a simplified app feel, with bigger buttons to click on the s
 
 That being said, feel free to dock anything wherever you want.
 
+(Psst, looking for more minimal theme? Check out [Mado Minimal](https://github.com/hydescarf/Obsidian-Theme-Mado-Minimal)!)
+
 ![](cover.png)
 ![](cover2.png)
 
@@ -38,8 +40,8 @@ Or
 
 #### Left Sidebar
 
-- New Note/New Folder/Rearrange buttons - hidden, hover to show. Position is at the top-left corner of the left-sidebar.
-- Ribbon buttons (Settings, Change Vault, etc.) - hidden, hover to show. Position is at the bottom-right corner.
+- New Note/New Folder/Rearrange buttons - hidden, hover to show. Position is at the top-right corner of the left-sidebar.
+- Ribbon buttons (Settings, Change Vault, etc.) - hidden, hover to show. Position is at the bottom-left corner.
 - Style is set to be buttons-only. Icons are made possible with [Icon Folder Plugin](https://github.com/FlorianWoelki/obsidian-icon-folder)
 - To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons-installation).
 
