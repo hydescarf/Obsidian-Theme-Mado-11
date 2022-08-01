@@ -6,7 +6,7 @@ This theme aims for a simplified app feel, with bigger buttons to click on the s
 
 That being said, feel free to dock anything wherever you want.
 
-(Psst, looking for more minimal theme? Check out [Mado Minimal](https://github.com/hydescarf/Obsidian-Theme-Mado-Minimal)!)
+(Psst, looking for more minimal theme? Check out [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)!)
 
 ![](cover.png)
 ![](cover2.png)
