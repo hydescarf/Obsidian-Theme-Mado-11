@@ -300,7 +300,6 @@ a{
 hr{
 	background-color:var(--background-modifier-border);
 	height:2px;
-	margin:4rem 0;
 }
 
 .markdown-preview-view{

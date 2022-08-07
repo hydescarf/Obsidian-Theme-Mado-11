@@ -13,22 +13,11 @@ That being said, feel free to dock anything wherever you want.
 
 ## Index
 
-- [Installation](#installation)
 - [Guideline](#guideline)
 - [Special CSS Class: mado-header](#special-css-class-mado-header)
 - [Sidebar Buttons Installation](#sidebar-buttons-installation)
 - [Changelog](#changelog)
 
----
-
-## Installation
-
-- Download the file "obsidian.css" and place it inside your Obsidian Snippet Folder. (You may rename the file to your liking)
-- Enable it through Settings → Appearance → CSS Snippets.
-
-Or
-
-- Download the theme through Obsidian's theme store!
 
 ## Guideline
 
@@ -57,7 +46,6 @@ Or
 - Resize Handle - hidden, hover to show.
 - Status Bar - hidden.
 
----
 
 ## Special CSS Class: mado-header
 Turn your headers into buttons, and align all contents to their width and style!
@@ -141,6 +129,9 @@ An adjustment to the Buttons Plugin `main.js` file is required as of April 2022,
 ---
 
 ## Changelog  
+
+v0.3.3
+- Remove height margin for `<hr>` or `---`.
 
 v0.3.2
 - Readjusted `titlebar` height style as previous version has disabled the dragging feature.
