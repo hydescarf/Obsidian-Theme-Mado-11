@@ -8,6 +8,10 @@ That being said, feel free to dock anything wherever you want.
 
 (Psst, looking for more minimal theme? Check out [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)!)
 
+>  
+> Notice: The style is currently being rewriting to support Obsidian v1.0 update!  
+> 
+
 ![](cover.png)
 ![](cover2.png)
 
