@@ -2,137 +2,52 @@
  
 Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
 
-This theme aims for a simplified app feel, with bigger buttons to click on the sidebar. Works well for people that prefer easy workflow rather than using everything Obsidian provided.
+This theme aims for a simplified, yet spacious kind of an app feel, with bigger buttons to click on the sidebar.
 
-That being said, feel free to dock anything wherever you want.
+(Looking for a more minimalism theme? Check out [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)!)
 
-(Psst, looking for more minimal theme? Check out [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)!)
+![](img/light-theme.png)
+![](img/dark-theme.png)
 
->  
-> Notice: The style is currently being rewriting to support Obsidian v1.0 update!  
-> 
-
-![](cover.png)
-![](cover2.png)
-
-## Index
-
-- [Guideline](#guideline)
-- [Special CSS Class: mado-header](#special-css-class-mado-header)
-- [Sidebar Buttons Installation](#sidebar-buttons-installation)
-- [Changelog](#changelog)
+Recommended fonts for this theme:
+- Text: Segoe UI, Noto Sans
+- Code: Fira Code
 
 
-## Guideline
+## Mado CSS Classes For Fun!
 
-#### Top Menu
+**Mado-Heading**, for an alternative bulky button feel!
 
-- Back & Forward buttons - hidden, hover to show. Position is at the top-left corner.
-- Min/Max/Close buttons - hidden, hover to show. Position is at the top-right corner.
-- App Title and Vault Title - hidden.
+![](img/mado-heading.png)
 
-#### Left Sidebar
+**Mado-Table**, fancy spacious table with few options such as header-positions `top, bottom, left, right, topless`, styling `stripe, border`, without the fancy style `normal`, and auto-widen `auto`.
 
-- New Note/New Folder/Rearrange buttons - hidden, hover to show. Position is at the top-right corner of the left-sidebar.
-- Ribbon buttons (Settings, Change Vault, etc.) - hidden, hover to show. Position is at the bottom-left corner.
-- Style is set to be buttons-only. Icons are made possible with [Icon Folder Plugin](https://github.com/FlorianWoelki/obsidian-icon-folder)
-- To achieve the bottom-left buttons (Settings, etc.), [Buttons Plugin](https://github.com/shabegom/buttons) is required. [See instructions below](#sidebar-buttons-installation).
+![](img/mado-table.png)
 
-#### Sidebar
+**Mado-Panel**, turn all of you lists into panels. Options come with collapsible `list`, panel fixed-sizing `small, medium, large, long, short` with auto-resize `auto`.
+  
+Callout version comes with `task` option.
+  
+![](img/mado-panel.png)
 
-- Dock-Collapse buttons - hidden, hover to show. Position is around the top-left/right corner.
-- Tab Menu on the dock - hidden, hover to show. Position is around the top-edge of the dock inner border.
+**Mado-Explorer**, turn your note into pseudo-File Explorer.
 
-#### Other
+**Mado-Timeline**, centering all elements with minor special adjustment.
 
-- Recommended Font: Segoe UI, Noto Sans JP
-- Main Pane has animation activated at each update/enter. Search for "slide-up" in the CSS file if you want to disable it.
-- Resize Handle - hidden, hover to show.
-- Status Bar - hidden.
+**Mado-Daily**, manually stamp your daily card for continuous-streak bonus at every 2nd and 5th day!
 
-
-## Special CSS Class: mado-header
-Turn your headers into buttons, and align all contents to their width and style!
-![](header-sample-light.png)
-![](header-sample-dark.png)
-
-#### Usage
-Just add "mado-header" to the cssclass in the frontmatter of that note and you're done.
-
-Make sure you have the option "Fold Header" enabled in your Settings→Editor section.
-~~~
----
-cssclass: mado-header
----
-~~~
-
-Header H1 will serve as the main button, and the rest will be kept inside of that button.
-
-Copy the following and test it out!
-~~~
-# Header H1 Title
-Contents can be anything.
-
-> Be it Quote
-
-```
-Or Code
-```
-
-- Or List
-
----
-
-- [ ] Or Checkbox (with a hidden separator `---` above to separate checkbox from list)
-~~~
-
----
-
-
-## Sidebar Buttons Installation
-
-1. Install [Buttons Plugin](https://github.com/shabegom/buttons).
-1. Create a note and insert a "button" (Ctrl+P, search for "Buttons: Button Maker") that should look like below. You may use an SVG link as Icon in the "name" section
-   ~~~
-   ```button
-   name <svg/> **Insert an SVG link here** </svg> New Note
-   type command
-   action Create a New Note 
-   ```
-   ~~~
-1. Create another note, and insert an "inline-button" (Ctrl+P, search for "Buttons: Insert Inline Button").
-1. Select the button you need to be placed on the sidebar. It should come out something like "\`button-aafl`".
-1. Insert a frontmatter cssclass of `mado-side-button` on top of the note. (v0.2.5+)
-   ~~~
-   ---
-   cssclass: mado-side-button
-   ---
-   ~~~
-1. Drag the note onto the bottom part of the sidebar.
-1. As of App v0.15.6 update, it is recommended to "pin" the above pane so that during new note creations from it, it will create a new note onto the main pane instead of onto the sidebar.
-
-
-
-#### Adjustment for Buttons Plugin
-An adjustment to the Buttons Plugin `main.js` file is required as of April 2022, to make the buttons work in the sidebar. See https://github.com/shabegom/buttons/pull/105 for more information.
-1. Go to your plugin folders
-2. Look for Buttons Folder, and open the file "main.js" inside it 
-3. Search for `const clickHandler = async (app, args, inline, id) => {` (around line 1553)  
-4. Look for these right below and cut them
-   ```js
-   if (args.type === "command") {  
-   	command(app, args);  
-   }  
-   // handle link buttons  
-   if (args.type === "link") {  
-   	link(args);  
-   }
-   ```
-5. Paste them below `const activeView = app.workspace.getActiveViewOfType(obsidian.MarkdownView);` which is just a few lines above them (or one line below the initial search)  
-
----
+![](img/mado-timeline-explorer-daily.png)
 
 ## Changelog  
+
+v1.0.0
+- Refactored code to be less hacky and adapting Obsidian v1.0 new design.
+- More user-friendly easy-to-click buttons that lie at the edges of the screen. 
+- Easier triggering for more buttons.
+- Implemented support for Style Settings plugin.
+- Introduced more built-in cssclass for fun.
+  - cssclass `mado-side-button` is replaced with `mado-explorer`, but main feature no longer supports plugin Buttons.
+  - cssclass `mado-header` has renamed to `mado-heading` for consistency.
 
 v0.3.3
 - Remove height margin for `<hr>` or `---`.
