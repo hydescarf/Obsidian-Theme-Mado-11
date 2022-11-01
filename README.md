@@ -115,7 +115,7 @@ mado-panel-auto (maintain the minimum fixed-size of above, while auto-widen base
 Rule:
 
 ```
-1. Only <li>(list) will turned into panel.
+1. Only <li>(list) will turn into panel.
 2. The list can consist of <a>(link) or "[]"(Checkbox), or plain text.
 3. Nested list is not available except for `mado-panel-list`.
 ```
