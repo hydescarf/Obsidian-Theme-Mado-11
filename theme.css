@@ -72,7 +72,7 @@ body.is-translucent{
 	--background-primary:var(--color-base-00-trans);
 	--background-secondary:var(--color-base-20-trans);
 }
-body.toggle-easy-toggle{
+body:is(:not(.css-settings-manager),.toggle-easy-toggle){
 	--hovering-trigger-size:13px;
 }
 
@@ -86,6 +86,7 @@ body.toggle-easy-toggle{
 	--color-base-20:hsla(210, 45%, 95%, 1);
 	
 	--color-base-00-trans:hsla(204, 45%, 97%, 0.5); /*for transparency background*/
+	--color-base-00-trans-alt:hsla(204, 10%, 90%, 0.8); /* alt for transparency background sidebar (hidden, sliding mode) */
 	--color-base-20-trans:hsla(210, 45%, 95%, 0.5);
 	--color-base-00-0:hsla(180, 33%, 99%, 1); /* very white */
 	--color-base-20-0:hsla(207, 10%, 90%, 0.1); /* hovered version for above */
@@ -118,6 +119,7 @@ body.toggle-easy-toggle{
 	
 	
 	--color-base-00-trans:hsla(215, 17%, 19%, 0.5); /*for transparency background*/
+	--color-base-00-trans-alt:hsla(215, 17%, 13%, 0.8);
 	--color-base-20-trans:hsla(214, 24%, 15%, 0.5);
 	--color-base-00-0:hsla(212, 17%, 22%, 0.9); /* very white */
 	--color-base-20-0:hsla(207, 10%, 10%, 0.1); /* hovered version for above */
@@ -308,6 +310,13 @@ body.is-translucent.is-hidden-frameless:not(.is-fullscreen) .titlebar-button-con
 	background:none;
 }
 
+/* force background color as it is unnoticable during sliding(hidden) mode*/
+body.is-translucent:is(:not(.css-settings-manager),.toggle-side-ribbons) .side-dock-ribbon.mod-left,
+body.is-translucent:is(:not(.css-settings-manager),.toggle-sidebar-buttons) .mod-top:is(.mod-top-left-space,.mod-top-right-space) .workspace-tab-header-container,
+body.is-translucent:is(:not(.css-settings-manager),.toggle-tab-section) .workspace-split.mod-vertical.mod-root .workspace-tab-header-container{
+	background:var(--color-base-00-trans-alt)!important;
+}
+
 
 
 
@@ -382,6 +391,8 @@ body:is(:not(.css-settings-manager),.toggle-vault-title) .nav-folder-title[data-
 --------------------------- --------------------------- 
 --------------------------- --------------------------- 
 */
+/* a bit confusing but I tried my best with the documentation :p */
+
 
 /* Toggle drawer-hiding on Ribbon Icons */
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-side-ribbons) .workspace-ribbon.side-dock-ribbon{
@@ -420,7 +431,7 @@ body:not(.is-mobile).is-hidden-frameless:is(:not(.css-settings-manager),.toggle-
 	z-index:1;
 	-webkit-app-region:no-drag;
 	transition:top 0.2s, opacity 0.1s;
-	opacity:1;
+	opacity:0;
 }
 body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs .workspace-tab-header-container,
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal:not(.mod-right-split) .workspace-tabs.mod-top .workspace-tab-header-container,
@@ -453,6 +464,13 @@ body .titlebar-button-container:is(.mod-right,.mod-left):hover:hover:hover:hover
 	opacity:1;
 }
 
+/* when grabbing, push down left side bar contents */
+.workspace-split.mod-horizontal.mod-left-split .workspace-tabs.mod-top .workspace-leaf{
+	transition:padding-top 0.2s;
+}
+body:is(:not(.css-settings-manager),.toggle-sidebar-buttons).is-grabbing.is-grabbing.is-grabbing.is-grabbing.is-grabbing .app-container:not(.no-transition) .workspace-split.mod-horizontal.mod-left-split .workspace-tabs.mod-top .workspace-leaf{
+	padding-top:var(--header-height);
+} 
 
 
 
@@ -465,50 +483,29 @@ body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical
 }
 
 
-/* remove restriction to let titlebar be hoverable; */
-body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-sidebar-buttons):not(.toggle-topright-opacity){
-	--frame-right-space:0;
-}
 
-/* basically, add a copy of the parent by "before", and set that as draggable with 1px space above. */
-/* whenever user hover above that 1px hole, it hovers titlebar, which then ask its sibling's child to apply "no-drag" region to the "before" */
-body.:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-sidebar-buttons) .workspace-tabs.mod-top.mod-top-right-space :is(.workspace-tab-header-container,.workspace-tab-header-spacer),
-body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:not(.toggle-sidebar-buttons) .titlebar:hover~.app-container .mod-top .workspace-tab-header-spacer:before{
-	-webkit-app-region:no-drag;
-}
-body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-sidebar-buttons) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-spacer{
-	position:relative;
-}
-body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-sidebar-buttons) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-spacer:before{
-	position:absolute;
-	content:"";
-	width:100%;
-	height:calc(100% - var(--hovering-trigger-size));
-	right:0;
-	top:var(--hovering-trigger-size);
-	-webkit-app-region:drag;
-}
-body:is(:not(.css-settings-manager),.toggle-titlebar-buttons) .workspace:not(.is-right-sidedock-open) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container:after{
-	/* background:black; */
+
+/* resize titlebar height to allow titlebar to response to cursor, this :after is a no-drag element */
+body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-topright-opacity) .workspace .workspace-tabs.mod-top:is(.mod-top-right-space,.mod-top-left-space) .workspace-tab-header-container:after{
 	height:var(--hovering-trigger-size);
+}
+/* when successfully hovered, expand back the size to full height until the cursor move away */
+body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-topright-opacity) .titlebar:hover~.app-container .workspace .workspace-tabs.mod-top:is(.mod-top-right-space,.mod-top-left-space) .workspace-tab-header-container:after{
+	height:var(--header-height);
 }
 
 
 /* readjust spacing for window titlebar buttons */
-body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons).is-hidden-frameless:not(.is-fullscreen):not(.toggle-topright-opacity) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container{
+body:not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-topright-opacity) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container{
 	padding-right:0;
 }
-body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons).is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container{
+body:not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container{
 	padding-left:0;
 }
-/* if sidebar header is hidden but not titlebar buttons */
-body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not(.toggle-titlebar-buttons):not(.toggle-titlebar-buttons):not(.toggle-titlebar-buttons):not(.toggle-titlebar-buttons):not(.toggle-titlebar-buttons) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container{
-	width:calc(100% - var(--frame-right-space));
-}
 
 
 
-/* Toggle drawer-hiding on Top Headers (Middle Tab) and adjust sizing*/
+/* Toggle drawer-hiding on Top Headers (Middle Tab) and adjust sizing */
 body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-container-inner{
 	margin-left:0;
 	padding-block:5px;
@@ -526,26 +523,28 @@ body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .wo
 }
 
 
-
-body:not(.is-mobile).toggle-tab-section:not(.show-view-header) .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top .workspace-tab-header-container:before,
+/* make temporary drag area below when buttons are hidden (slide up) */
+/* middle note tab area */
+/* hidden sidebar both side */
+/* when left dock is collapsed */
+/* when right dock is collapsed & not opacity-mode*/
+body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top .workspace-tab-header-container:before,
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal .workspace-tabs.mod-top .workspace-tab-header-container:before,
-body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal:not(.mod-right-split) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container:before,
-body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not(.toggle-topright-opacity) .workspace>.workspace-split.mod-horizontal:not(.mod-right-split) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container:before,
-body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top .workspace-tab-header-container:before{
+body:not(.is-mobile) .workspace>.workspace-split.mod-horizontal:not(.mod-left-split) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container:before,
+body:not(.is-mobile):not(.toggle-topright-opacity) .workspace>.workspace-split.mod-horizontal:not(.mod-right-split) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container:before{
 	position:absolute;
 	content:"";
 	width:100%;
-	height:100%;
+	height:calc(100% - var(--hovering-trigger-size));
 	left:0;
-	top:calc(100% + var(--hovering-trigger-size));
+	top:var(--header-height);
 	/* background:black; */
 	-webkit-app-region:drag;
-	pointer-events:none; /* prevents hovering that caused hidden explorer buttons to show up */
+	pointer-events:none; /* preven unclickabled buttons underneath it */
 	transition:height 0.2s;
 }
-body:not(.is-mobile).toggle-tab-section:not(.show-view-header) .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top .workspace-tab-header-container:hover:before,
-body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal .workspace-tabs.mod-top:is(.mod-top-left-space,.mod-top-right-space) .workspace-tab-header-container:hover:before,
-body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top .workspace-tab-header-container:hover:before{
+body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top .workspace-tab-header-container:hover:before,
+body:not(.is-mobile) .workspace>.workspace-split.mod-horizontal .workspace-tabs.mod-top:is(.mod-top-left-space,.mod-top-right-space) .workspace-tab-header-container:hover:before{
 	height:0;
 }
 /* resize "drag" space to allow titlebar buttons to be hovered */
@@ -561,12 +560,7 @@ body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:is(:not(.css-sett
 	width:calc(100% - var(--frame-left-space) - var(--ribbon-width));
 	left:calc(var(--frame-left-space) + var(--ribbon-width));
 }
-body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:is(:not(.css-settings-manager),.toggle-side-ribbons):not(.toggle-sidebar-buttons) .workspace>.workspace-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container:before{
-	width:var(--hovering-trigger-size);
-	-webkit-app-region:no-drag;
-}
-body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:is(:not(.css-settings-manager),.toggle-side-ribbons):not(.toggle-sidebar-buttons) .side-dock-ribbon.mod-left:hover~.workspace-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container:before,
-body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:is(:not(.css-settings-manager),.toggle-side-ribbons) .workspace:not(.is-left-sidedock-open) .side-dock-ribbon.mod-left:hover~.workspace-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container:before{
+body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:is(:not(.css-settings-manager),.toggle-side-ribbons) .side-dock-ribbon.mod-left:hover~.workspace-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container:before{
 	width:var(--ribbon-width);
 	left:0;
 	-webkit-app-region:no-drag;
@@ -605,7 +599,7 @@ body:not(.is-mobile).css-settings-manager.TEB-hide-vertical:not(.toggle-sidebar-
 body:not(.is-mobile):is(.TEB-hide-horizontal,.TEB-show-horizontal):not(.toggle-sidebar-buttons) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container{
 	left:13px;
 	right:unset;
-	top:-3px;
+	top:0px;
 	box-shadow:var(--window-shadow);
 }
 
@@ -627,7 +621,7 @@ body .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container:h
 body:not(.toggle-sidebar-buttons).css-settings-manager .workspace-split.mod-horizontal:is(.mod-left-split,.mod-right-split) .workspace-tabs.mod-top .workspace-tab-header-container:hover:hover+.workspace-tab-container .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container,
 body:not(.toggle-sidebar-buttons).css-settings-manager .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container:hover:hover{
 	pointer-events:initial;
-	top:-3px;
+	top:0px;
 	opacity:1;
 }
 
@@ -927,6 +921,12 @@ body.toggle-sidebar-right-color .workspace-split.mod-horizontal.mod-right-split 
 .menu-item{
 	padding:var(--button-padding-long);
 }
+body.is-translucent .menu{
+	background:var(--color-base-00);
+}
+
+
+
 
 
 /* Hide status bar */
@@ -976,6 +976,9 @@ body.toggle-sync-button.toggle-status-bar .status-bar-item .svg-icon{
 .vertical-tab-header-group:not(:last-child){
 	border-bottom:var(--border);
 	margin-bottom:23px;
+}
+body.is-translucent .modal{
+	background:var(--color-base-00);
 }
 
 
@@ -1245,19 +1248,21 @@ code{
 }
 
 /* Inline code */
-.markdown-rendered :not(pre)>code{
+.markdown-rendered :not(pre)>code,
+.cm-s-obsidian span.cm-inline-code{
 	color:var(--inline-code-color);
 }
-
-.markdown-rendered pre{
-	overflow-x: auto;
-}
-
 /* inline code background */
 .cm-hmd-indented-code,
 .cm-s-obsidian span.cm-inline-code.cm-hmd-indented-code{
 	background:var(--code-background);
 }
+
+
+.markdown-rendered pre{
+	overflow-x: auto;
+}
+
 
 :is(mark, .cm-s-obsidian span.cm-formatting-highlight, .cm-s-obsidian span.cm-highlight){
 	color:var(--color-highlight);
@@ -1946,6 +1951,10 @@ body:is(:not(.css-settings-manager),.toggle-explorer-collapse) .workspace-tabs .
 .mado-timeline .markdown-preview-sizer>div>:is(blockquote,.callout, pre, table){
 	margin-top:23px;
 }
+.mado-timeline .markdown-preview-sizer>div>hr{
+	width:70%;
+	margin-top:53px;
+}
 
 .mado-timeline .markdown-preview-sizer>div>:is(pre,table){
 	text-align:left;
@@ -2061,8 +2070,8 @@ div.callout[data-callout*="mado-panel"] ul li:hover{
 }
 
 /* adapt "a" link to whole panel so to be clickable */
-[class*="mado-panel"] .markdown-preview-sizer>div a,
-div.callout[data-callout*="mado-panel"] a{
+[class*="mado-panel"] .markdown-preview-sizer>div ul a,
+div.callout[data-callout*="mado-panel"] ul a{
 	display:flex;
 	align-items:center;
 	justify-content:center;	
@@ -2522,12 +2531,6 @@ settings:
 		type: class-toggle
 		default: true
 	- 
-		id: toggle-topright-opacity
-		title: Enable alternative toggle style for top-right sidebar
-		description: Enabling this will switch the toggle style from "sliding" to "fading"
-		type: class-toggle
-		default: false
-	- 
 		id: toggle-note-animation
 		title: Enable sliding animation on main pane
 		description: Animation is noticable when you switch to a new tab
@@ -2554,7 +2557,13 @@ settings:
 		id: toggle-easy-toggle
 		title: Enable Easy Toggle
 		type: class-toggle
-		description: As the default design is meant for maximized window usage, enabling this will help you to trigger the hiding element easily without hovering at the thin edge of the app.
+		description: Enabling Easy Toggle gives you more triggerable area to reveal the hidden buttons.
+		default: true
+	- 
+		id: toggle-topright-opacity
+		title: Enable Alternative Toggle Style (Top-right)
+		description: Enabling this will switch the toggle style from "sliding" to "fading".
+		type: class-toggle
 		default: false
 	- 
 	
