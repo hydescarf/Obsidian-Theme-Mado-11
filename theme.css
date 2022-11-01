@@ -753,7 +753,7 @@ body.is-frameless:not(.is-hidden-frameless) .workspace-split.mod-horizontal.mod-
 
 /* make space when right sidebar is collapsed */
 .workspace:not(.is-right-sidedock-open) .sidebar-toggle-button.mod-right{
-	margin-right:4px;
+	padding-right:4px;
 }
 
 
