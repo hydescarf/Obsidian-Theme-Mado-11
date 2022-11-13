@@ -71,6 +71,7 @@ body{
 body.is-translucent{
 	--background-primary:var(--color-base-00-trans);
 	--background-secondary:var(--color-base-20-trans);
+	--background-fourth:var(--color-base-00-0-trans);
 }
 body:is(:not(.css-settings-manager),.toggle-easy-toggle){
 	--hovering-trigger-size:13px;
@@ -90,6 +91,7 @@ body:is(:not(.css-settings-manager),.toggle-easy-toggle){
 	--color-base-20-trans:hsla(210, 45%, 95%, 0.5);
 	--color-base-00-0:hsla(180, 33%, 99%, 1); /* very white */
 	--color-base-20-0:hsla(207, 10%, 90%, 0.1); /* hovered version for above */
+	--color-base-00-0-trans:hsla(180, 33%, 99%, 0.5);
 	--color-base-shadow:hsla(212, 17%, 80%, 0.2); /* shadow */
 	--color-base-shadow-hover:hsla(212, 17%, 80%, 0.3); /* shadow hover*/
 	--color-base-hover:var(--color-base-shadow-hover); /* hover*/
@@ -123,6 +125,7 @@ body:is(:not(.css-settings-manager),.toggle-easy-toggle){
 	--color-base-20-trans:hsla(214, 24%, 15%, 0.5);
 	--color-base-00-0:hsla(212, 17%, 22%, 0.9); /* very white */
 	--color-base-20-0:hsla(207, 10%, 10%, 0.1); /* hovered version for above */
+	--color-base-00-0-trans:hsla(212, 17%, 22%, 0.5);
 	--color-base-shadow:hsla(207, 10%, 10%, 0.1); /* shadow */
 	--color-base-shadow-hover:hsla(212, 17%, 0%, 0.3); /* shadow hover*/
 	--color-base-hover:var(--color-base-05); /* hover*/
@@ -700,13 +703,14 @@ body:not(.toggle-sidebar-buttons):is(.TEB-show-vertical,.TEB-show-horizontal) .w
 .workspace-split.mod-vertical.mod-root .workspace-tab-header{
 	padding:0;
 	border-radius:6px;
-	border:var(--border);
+	border:1px solid transparent;
 	box-shadow:none;
 	margin-top:-13px;
-	background:var(--background-secondary);
+	/* background:var(--background-secondary); */
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header.is-active{
-	background:var(--background-primary);
+	background:var(--background-fourth);
+	border:var(--border);
 }
 .workspace-split.mod-vertical.mod-root .workspace-tab-header-inner{
 	padding:27px 11px 13px;
@@ -900,6 +904,13 @@ body.toggle-sidebar-right-color .workspace-split.mod-horizontal.mod-right-split 
 	padding-block:0.5em;
 }
 
+/* hard override translucent mode transparent background */
+body.is-translucent .workspace-split.mod-horizontal.mod-right-split .workspace-leaf{
+	background-color:var(--background-fourth)!important;
+}
+body.is-translucent.toggle-sidebar-right-color .workspace-split.mod-horizontal.mod-right-split .workspace-leaf{
+	background-color:var(--background-secondary)!important;
+}
 
 
 
