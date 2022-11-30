@@ -261,6 +261,7 @@ body.toggle-wave-background:before{
     background-color:var(--color-accent-2);
 	transform:rotateZ(180deg);
 	opacity:0.3;
+	pointer-events:none;
 }
 
 /* remove padding-top when fullscreen in obsidian-ver titlebar */
@@ -269,7 +270,7 @@ body.is-frameless:not(.is-hidden-frameless).is-fullscreen{
 }
 
 /* hidden scrollbar */
-body:is(:not(.css-settings-manager),.toggle-scrollbar) ::-webkit-scrollbar-thumb{
+body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-scrollbar) ::-webkit-scrollbar-thumb{
 	visibility:hidden;
 }
 body ::-webkit-scrollbar-thumb:hover{
@@ -831,8 +832,8 @@ body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-topleft-radius) .wor
 
 
 /* Overflow to allow shadow flowing out */
-.workspace-tabs,
-.workspace-tabs .workspace-tab-container{
+body:not(.is-mobile) .workspace-tabs,
+body:not(.is-mobile) .workspace-tabs .workspace-tab-container{
     overflow:visible;
 }
 
@@ -1024,7 +1025,7 @@ body.is-translucent .modal{
 	100% { transform:scale(100%); opacity:1; }
 }
 
-body:is(:not(.css-settings-manager), .toggle-note-animation) .workspace-split.mod-vertical.mod-root .workspace-tabs:not(.mod-stacked)  .view-content{
+body:not(.is-mobile):is(:not(.css-settings-manager), .toggle-note-animation) .workspace-split.mod-vertical.mod-root .workspace-tabs:not(.mod-stacked)  .view-content{
 	animation:0.2s slide-up forwards;
 }
 @keyframes slide-up{
