@@ -261,7 +261,7 @@ body.toggle-wave-background:before{
     background-color:var(--color-accent-2);
 	transform:rotateZ(180deg);
 	opacity:0.3;
-	pointer-events:none;
+	/* pointer-events:none; */
 }
 
 /* remove padding-top when fullscreen in obsidian-ver titlebar */
@@ -1025,7 +1025,7 @@ body.is-translucent .modal{
 	100% { transform:scale(100%); opacity:1; }
 }
 
-body:not(.is-mobile):is(:not(.css-settings-manager), .toggle-note-animation) .workspace-split.mod-vertical.mod-root .workspace-tabs:not(.mod-stacked)  .view-content{
+body:is(:not(.css-settings-manager), .toggle-note-animation) .workspace-split.mod-vertical.mod-root .workspace-tabs:not(.mod-stacked)  .view-content{
 	animation:0.2s slide-up forwards;
 }
 @keyframes slide-up{
