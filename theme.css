@@ -2449,7 +2449,7 @@ div.kanban-plugin__lane-title-count{
 	margin-top:0;
 }
 .style-settings-collapse-indicator{
-	color:initial;
+	color:var(--text-normal);
 }
 .style-settings-heading+.style-settings-container+.style-settings-heading{
 	margin-top:13px;
