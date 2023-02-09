@@ -1,6 +1,6 @@
 # Obsidian Theme - Mado 11
  
-Mado 11 is an Obsidian theme, inspired by Windows 11 UI styling.
+Mado 11 is an [Obsidian](https://obsidian.md/) theme, inspired by Windows 11 UI styling.
 
 This theme aims for a simplified, yet spacious kind of an app feel, with bigger buttons to click on the sidebar.
 
