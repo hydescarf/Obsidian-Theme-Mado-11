@@ -464,12 +464,13 @@ body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal:not(.mod-right-split) .workspace-tabs.mod-top .workspace-tab-header-container{
 	border-left:none;
 	/* fix for macos */
-	margin-left:var(--frame-left-space);
-	width:calc(100% - var(--frame-left-space));
+	/* margin-left:var(--frame-left-space); */
+	/* width:calc(100% - var(--frame-left-space)); */
 }
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not(.toggle-topright-opacity) .workspace>.workspace-split.mod-horizontal.mod-right-split .workspace-tabs.mod-top .workspace-tab-header-container{
 	border-right:none;
 }
+
 body .workspace-split .workspace-tabs .workspace-tab-header-container:hover:hover:hover:hover:hover:hover:hover,
 body.is-grabbing.is-grabbing.is-grabbing.is-grabbing.is-grabbing .app-container:not(.no-transition) .workspace-split .workspace-tabs .workspace-tab-header-container,
 body .titlebar-button-container:is(.mod-right,.mod-left):hover:hover:hover:hover{
@@ -512,14 +513,15 @@ body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-toprig
 body:not(.mod-macos):not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-topright-opacity) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container{
 	padding-right:0;
 }
-body:not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container{
+body:not(.mod-macos):not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container{
 	padding-left:0;
 }
 
 /* exception for macos */
+/* Unconfirmed: possible bad fix because of macos-css-simulation on windows, thus disabling this but keep for future reference */
 body.mod-macos.is-hidden-frameless:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not(.is-popout-window) .workspace>.workspace-split.mod-horizontal.mod-right-split .workspace-tabs.mod-top .workspace-tab-header-container{
-	width:calc(100% - 44px);
-	border-right:var(--border);
+	/* width:calc(100% - 44px); */
+	/* border-right:var(--border); */
 }
 
 
@@ -567,8 +569,9 @@ body:not(.is-mobile) .workspace>.workspace-split.mod-horizontal .workspace-tabs.
 	height:0;
 }
 /* macos fix, remove :before height so that button on top-right corner can be hovered */
+/* Unconfirmed: possible bad fix because of macos-css-simulation on windows, thus disabling this but keep for future reference */
 body.mod-macos:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container:before{
-	height:0;
+	/* height:0; */
 }
 
 /* resize "drag" space to allow titlebar buttons to be hovered */
@@ -631,6 +634,10 @@ body:not(.is-mobile):is(.TEB-hide-horizontal,.TEB-show-horizontal):not(.toggle-s
 	right:unset;
 	top:0px;
 	box-shadow:var(--window-shadow);
+}
+body.mod-macos:not(.is-mobile).css-settings-manager.TEB-hide-vertical:not(.toggle-sidebar-buttons) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container,
+body.mod-macos:not(.is-mobile):is(.TEB-hide-horizontal,.TEB-show-horizontal):not(.toggle-sidebar-buttons) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container{
+	left:var(--frame-left-space);
 }
 
 body:not(.is-mobile):is(:not(.css-settings-manager),.TEB-hide-vertical) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container .nav-action-button,
@@ -788,14 +795,15 @@ body.is-frameless:not(.is-hidden-frameless) .workspace-split.mod-horizontal.mod-
 }
 
 /* macos fixes for top-right buttons */
+/* Unconfirmed: possible bad fix because of macos-css-simulation on windows, thus disabling this but keep for future reference */
 .mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right{
-	border:var(--border);
-	padding:4px;
-	border-top:none;
-	border-radius:var(--button-radius);
+	/* border:var(--border); */
+	/* padding:4px; */
+	/* border-top:none; */
+	/* border-radius:var(--button-radius); */
 }
 .mod-macos .workspace:not(.is-right-sidedock-open) .sidebar-toggle-button.mod-right{
-	border-left:none;
+	/* border-left:none; */
 }
 
 
