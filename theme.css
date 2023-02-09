@@ -279,7 +279,7 @@ body.is-frameless:not(.is-hidden-frameless).is-fullscreen{
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-scrollbar) ::-webkit-scrollbar-thumb{
 	visibility:hidden;
 }
-body ::-webkit-scrollbar-thumb:hover{
+body ::-webkit-scrollbar-thumb:hover:hover{
 	visibility:initial;
 }
 
@@ -463,6 +463,9 @@ body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not
 
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal:not(.mod-right-split) .workspace-tabs.mod-top .workspace-tab-header-container{
 	border-left:none;
+	/* fix for macos */
+	margin-left:var(--frame-left-space);
+	width:calc(100% - var(--frame-left-space));
 }
 body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not(.toggle-topright-opacity) .workspace>.workspace-split.mod-horizontal.mod-right-split .workspace-tabs.mod-top .workspace-tab-header-container{
 	border-right:none;
@@ -506,11 +509,17 @@ body:is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-toprig
 
 
 /* readjust spacing for window titlebar buttons */
-body:not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-topright-opacity) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container{
+body:not(.mod-macos):not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons):not(.toggle-topright-opacity) .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container{
 	padding-right:0;
 }
 body:not(.is-mobile).is-hidden-frameless:not(.is-fullscreen):is(:not(.css-settings-manager),.toggle-titlebar-buttons) .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container{
 	padding-left:0;
+}
+
+/* exception for macos */
+body.mod-macos.is-hidden-frameless:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons):not(.is-popout-window) .workspace>.workspace-split.mod-horizontal.mod-right-split .workspace-tabs.mod-top .workspace-tab-header-container{
+	width:calc(100% - 44px);
+	border-right:var(--border);
 }
 
 
@@ -557,6 +566,11 @@ body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical
 body:not(.is-mobile) .workspace>.workspace-split.mod-horizontal .workspace-tabs.mod-top:is(.mod-top-left-space,.mod-top-right-space) .workspace-tab-header-container:hover:before{
 	height:0;
 }
+/* macos fix, remove :before height so that button on top-right corner can be hovered */
+body.mod-macos:not(.is-mobile):is(:not(.css-settings-manager),.toggle-sidebar-buttons) .workspace>.workspace-split.mod-horizontal .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container:before{
+	height:0;
+}
+
 /* resize "drag" space to allow titlebar buttons to be hovered */
 body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless .titlebar:hover~.app-container .workspace-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container:before{
 	width:calc(100% - var(--frame-right-space));
@@ -574,6 +588,12 @@ body:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless:is(:not(.css-sett
 	width:var(--ribbon-width);
 	left:0;
 	-webkit-app-region:no-drag;
+}
+
+
+/* fix minmaxclose buttons not being able to fully hovered when both sidebars are collapsed during toggle-toporight-opacity */
+body.toggle-topright-opacity .titlebar:hover:hover~.app-container .workspace .workspace-tabs.mod-top .workspace-tab-header-container:before{
+	top:0;
 }
 
 
@@ -762,9 +782,20 @@ body.is-frameless:not(.is-hidden-frameless) .workspace-split.mod-horizontal.mod-
 	padding:3px 7px;
 }
 
-/* make space when right sidebar is collapsed */
-.workspace:not(.is-right-sidedock-open) .sidebar-toggle-button.mod-right{
+/* make space for top-right button */
+.sidebar-toggle-button.mod-right{
 	padding-right:4px;
+}
+
+/* macos fixes for top-right buttons */
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right{
+	border:var(--border);
+	padding:4px;
+	border-top:none;
+	border-radius:var(--button-radius);
+}
+.mod-macos .workspace:not(.is-right-sidedock-open) .sidebar-toggle-button.mod-right{
+	border-left:none;
 }
 
 
