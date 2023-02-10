@@ -236,6 +236,9 @@ body.theme-grayscale.theme-dark{
 	--accent-l: 63%;
 }
 
+body.mod-macos{
+	--frame-left-space:80px;
+}
 
 
 
@@ -525,7 +528,6 @@ body.mod-macos.is-hidden-frameless:not(.is-mobile):is(:not(.css-settings-manager
 }
 
 
-
 /* Toggle drawer-hiding on Top Headers (Middle Tab) and adjust sizing */
 body:not(.is-mobile).toggle-tab-section .workspace>.workspace-split.mod-vertical.mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-container-inner{
 	margin-left:0;
@@ -635,8 +637,9 @@ body:not(.is-mobile):is(.TEB-hide-horizontal,.TEB-show-horizontal):not(.toggle-s
 	top:0px;
 	box-shadow:var(--window-shadow);
 }
+/* macos fix */
 body.mod-macos:not(.is-mobile).css-settings-manager.TEB-hide-vertical:not(.toggle-sidebar-buttons) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container,
-body.mod-macos:not(.is-mobile):is(.TEB-hide-horizontal,.TEB-show-horizontal):not(.toggle-sidebar-buttons) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container{
+body.mod-macos:not(.is-mobile):is(.TEB-hide-horizontal):not(.toggle-sidebar-buttons) .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container{
 	left:var(--frame-left-space);
 }
 
@@ -660,6 +663,9 @@ body:not(.toggle-sidebar-buttons).css-settings-manager .workspace-leaf-content[d
 	pointer-events:initial;
 	top:0px;
 	opacity:1;
+}
+body:not(.toggle-sidebar-buttons):is(.TEB-show-vertical,.TEB-show-horizontal).css-settings-manager .workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container:hover:hover{
+	top:13px;
 }
 
 
