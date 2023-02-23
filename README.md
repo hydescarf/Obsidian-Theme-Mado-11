@@ -52,7 +52,6 @@ There are rules for this to work:
 5. Second level folder, or nested <li>, is not possible.
 6. For <h1> to be foldable, you have to enable the foldable option in the settings.
 7. To make a solo-file below a folder list, use an empty <h1> to act as a separator.
-
 ```
 
 Example:
@@ -120,7 +119,6 @@ Rule:
 ```
 1. Only <li>(list) will turn into panel.
 2. The list can consist of <a>(link) or "[]"(Checkbox), or plain text.
-3. Nested list is not available except for `mado-panel-list`.
 ```
 Callout version is also available if you need only one part of the list to become panel.
 Options in callout version can be chained directly. (Only `auto` and `link` are currently available to be chained)
@@ -145,11 +143,11 @@ cssclass: mado-timeline
 <details>
 <summary><b>Mado Daily</b></summary>
 
+![](img/mado-daily.png)
+
 ```
 cssclass: mado-daily
 ```
-
-![](img/mado-daily.png)
 
 Feel like logging into a game to turn in for daily bonus? Well, now you can with this manual-stamp daily!
 You can set the reward for every 2nd and 5th day, and then start filling in with any value or emoji in the empty cells. The reward will mark as checked when the previous cell is filled in.
@@ -162,15 +160,18 @@ Also, adding in another cssclass `mado-table` will give it a better looking, opt
 ![](img/mado-table-check.png)
 
 ```
-cssclass: mado-table-check
-```
-
-```
+(Example on left side of the image)
 > [!mado-list2table]
 > - Title
 >   - [ ] Checkboxes
 >   - [ ] Checkboxes
 ```
+
+```
+(Example on right side of the image)
+cssclass: mado-table-check
+```
+
 
 Stamp a checkmark by manually using "strikethrough" (`~~~~`/`<del></del>`) inside the block, either on the value or beside the value!
 Don't like manually stamping? Then try out callout `mado-list2table`! By turning a list of checklists into a pseudo-table, you can now mark a check on the block by directly clicking onto it!
