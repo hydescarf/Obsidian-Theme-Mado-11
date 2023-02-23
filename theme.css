@@ -2368,8 +2368,8 @@ div.callout[data-callout*="mado-panel-list"][data-callout*="-rightbox"] ul li.ta
 
 
 /* the very first list */
-[class*="mado-panel-"] .markdown-preview-sizer>div>ul>li>.list-collapse-indicator,
-div.callout[data-callout*="mado-panel-list"] ul .callout-content>ul>li>.list-collapse-indicator{
+[class*="mado-panel-list"] .markdown-preview-sizer>div>ul>li>.list-collapse-indicator,
+div.callout[data-callout*="mado-panel-list"] .callout-content>ul>li>.list-collapse-indicator{
 	margin-left:-57px;
 }
 /* all normal list */
