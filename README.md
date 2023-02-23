@@ -159,21 +159,19 @@ Also, adding in another cssclass `mado-table` will give it a better looking, opt
 
 ![](img/mado-table-check.png)
 
+Stamp a checkmark by manually using "strikethrough" (`~~~~`/`<del></del>`) inside the block, either on the value or beside the value!
+
 ```
-(Example on left side of the image)
+cssclass: mado-table-check
+```
+
+Don't like manually stamping? Then try out callout `mado-list2table`! By turning a list of checklists into a pseudo-table, you can now mark a check on the block by directly clicking onto it!
+
+```
 > [!mado-list2table]
 > - Title
 >   - [ ] Checkboxes
 >   - [ ] Checkboxes
 ```
-
-```
-(Example on right side of the image)
-cssclass: mado-table-check
-```
-
-
-Stamp a checkmark by manually using "strikethrough" (`~~~~`/`<del></del>`) inside the block, either on the value or beside the value!
-Don't like manually stamping? Then try out callout `mado-list2table`! By turning a list of checklists into a pseudo-table, you can now mark a check on the block by directly clicking onto it!
 
 </details>
