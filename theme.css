@@ -3238,11 +3238,4 @@ settings:
 		format: hsl
 		default-light: '#'
 		default-dark: '#'
-	-
-		id: h6-color
-		title: H6 Color
-		type: variable-themed-color
-		format: hsl
-		default-light: '#'
-		default-dark: '#'
 */
